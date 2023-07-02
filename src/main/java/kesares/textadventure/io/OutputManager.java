@@ -1,0 +1,41 @@
+package kesares.textadventure.io;
+
+public final class OutputManager {
+
+    private static final int PRINT_PARTING_LINE = 100;
+    private static byte counter;
+
+    private OutputManager() {
+        throw new UnsupportedOperationException();
+    }
+
+    public static void printTitle(String title) {
+        printBoldPartingLine();
+        System.out.printf("%" + calculateCenterWidth(title) + "s\r\n", title);
+        printBoldPartingLine();
+    }
+
+    public static void printBoldPartingLine() {
+        for (counter = 0; counter < PRINT_PARTING_LINE; counter++) {
+            System.out.print('=');
+        }
+        System.out.println();
+    }
+
+    public static void printThinPartingLine() {
+        for (counter = 0; counter < PRINT_PARTING_LINE; counter++) {
+            System.out.println('-');
+        }
+        System.out.println();
+    }
+
+    public static void clearConsole() {
+        for (counter = 0; counter < PRINT_PARTING_LINE; counter++) {
+            System.out.println();
+        }
+    }
+
+    private static int calculateCenterWidth(String text) {
+        return PRINT_PARTING_LINE / 2 + text.length() / 2;
+    }
+}

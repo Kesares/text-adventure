@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+    <entry key="optionDoesntExist">The option '%d' doesn't exist.</entry>
+    <entry key="invalidInput">Ungültige Eingabe. Gib eine Zahl ein!</entry>
+    <entry key="enterContinue">Drücke 'Enter' um fortzufahren...</entry>
+</properties>
