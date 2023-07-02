@@ -2,6 +2,11 @@
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
     <entry key="optionDoesntExist">The option '%d' doesn't exist.</entry>
-    <entry key="invalidInput">Ungültige Eingabe. Gib eine Zahl ein!</entry>
-    <entry key="enterContinue">Drücke 'Enter' um fortzufahren...</entry>
+    <entry key="invalidInput">Invalid input. Enter an integer!</entry>
+    <entry key="enterContinue">Press 'Enter' to continue...</entry>
+    <entry key="mainMenu">1: Continue story...|2: Character info|3: Inventory|4: Settings|5: Exit</entry>
+    <entry key="settingsMenu">1: Language selection||2: Back</entry>
+    <entry key="langSelectionMenu">1: English|2: German||3: Back</entry>
+    <entry key="settingsMenuTitle">Settings</entry>
+    <entry key="langSelectionMenuTitle">Language Selection</entry>
 </properties>

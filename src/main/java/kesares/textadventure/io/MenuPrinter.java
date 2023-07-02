@@ -1,5 +1,7 @@
 package kesares.textadventure.io;
 
+import kesares.textadventure.util.lang.Strings;
+
 public final class MenuPrinter {
 
     private MenuPrinter() {
@@ -8,31 +10,19 @@ public final class MenuPrinter {
 
     public static void printMainMenu() {
         OutputManager.printTitle("Text Adventure");
-        System.out.println("""
-                1: Continue story...
-                2: Character info
-                3: Inventory
-                4: Settings
-                5: Exit""");
+        System.out.println(Strings.mainMenu);
         OutputManager.printBoldPartingLine();
     }
 
     public static void printSettingsMenu() {
-        OutputManager.printTitle("Settings");
-        System.out.println("""
-                1: Change Language
-                
-                2: Back""");
+        OutputManager.printTitle(Strings.settingsMenuTitle);
+        System.out.println(Strings.settingsMenu);
         OutputManager.printBoldPartingLine();
     }
 
     public static void printLanguageSelectionMenu() {
-        OutputManager.printTitle("Select Language");
-        System.out.println("""
-                1: English
-                2: German
-                
-                3: Back""");
+        OutputManager.printTitle(Strings.langSelectionMenuTitle);
+        System.out.println(Strings.langSelectionMenu);
         OutputManager.printBoldPartingLine();
     }
 }
