@@ -13,6 +13,10 @@ public final class Strings {
     public static String langSelectionMenu;
     public static String langSelectionMenuTitle;
 
+    // Player-Class
+    public static String playerStatsTitle;
+    public static String inventoryTitle;
+
     private Strings() {
         throw new UnsupportedOperationException();
     }

@@ -13,7 +13,7 @@ public class XMLLoader {
 
     private XMLLoader() {
         this.properties = Map.of(
-            // "Root", this.getPropertiesFrom("/lang/Root.xml"),
+            "Root", this.getPropertiesFrom("/lang/Root.xml"),
             "Root_en", this.getPropertiesFrom("/lang/Root_en.xml"),
             "Root_de", this.getPropertiesFrom("/lang/Root_de.xml")
         );

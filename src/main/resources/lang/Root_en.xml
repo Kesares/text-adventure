@@ -9,4 +9,6 @@
     <entry key="langSelectionMenu">1: English|2: German||3: Back</entry>
     <entry key="settingsMenuTitle">Settings</entry>
     <entry key="langSelectionMenuTitle">Language Selection</entry>
+    <entry key="playerStatsTitle">Character info: </entry>
+    <entry key="inventoryTitle">Inventory</entry>
 </properties>

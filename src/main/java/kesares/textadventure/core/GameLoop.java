@@ -1,9 +1,5 @@
 package kesares.textadventure.core;
 
-import kesares.textadventure.io.InputManager;
-import kesares.textadventure.io.MenuPrinter;
-import kesares.textadventure.io.OutputManager;
-
 public class GameLoop {
 
     private final Game game;
@@ -21,14 +17,8 @@ public class GameLoop {
     }
 
     private void run() {
-        byte input;
-
         while (this.isRunning) {
-            InputManager.enterToContinue();
-            OutputManager.clearConsole();
-            MenuPrinter.printMainMenu();
-            input = InputManager.enterByte("> ");
-            this.game.update(input);
+            this.game.update();
             if (!this.game.isRunning()) this.stop();
         }
     }

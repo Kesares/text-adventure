@@ -40,5 +40,9 @@ public class LanguageSelector {
         Strings.settingsMenuTitle = this.languageProperties.getProperty("settingsMenuTitle");
         Strings.langSelectionMenu = Strings.format(this.languageProperties.getProperty("langSelectionMenu"));
         Strings.langSelectionMenuTitle = this.languageProperties.getProperty("langSelectionMenuTitle");
+
+        // Player-Class
+        Strings.playerStatsTitle = this.languageProperties.getProperty("playerStatsTitle");
+        Strings.inventoryTitle = this.languageProperties.getProperty("inventoryTitle");
     }
 }
