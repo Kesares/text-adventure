@@ -1,7 +1,7 @@
 package kesares.textadventure.core;
 
+import kesares.textadventure.io.OutputManager;
 import kesares.textadventure.util.lang.LanguageSelector;
-import kesares.textadventure.util.lang.Strings;
 
 import java.util.Locale;
 
@@ -25,7 +25,7 @@ public class Game {
             case 3 -> System.out.println("Inventory");
             case 4 -> Settings.changeSettings();
             case 5 -> this.exit();
-            default -> System.out.printf(Strings.optionDoesntExist + "\r\n", option);
+            default -> OutputManager.printOptionDoesntExist(option);
         }
     }
 

@@ -1,5 +1,7 @@
 package kesares.textadventure.io;
 
+import kesares.textadventure.util.lang.Strings;
+
 public final class OutputManager {
 
     private static final int PRINT_PARTING_LINE = 100;
@@ -33,6 +35,10 @@ public final class OutputManager {
         for (counter = 0; counter < PRINT_PARTING_LINE; counter++) {
             System.out.println();
         }
+    }
+
+    public static void printOptionDoesntExist(byte option) {
+        System.out.printf(Strings.optionDoesntExist, option);
     }
 
     private static int calculateCenterWidth(String text) {

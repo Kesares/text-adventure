@@ -4,11 +4,12 @@ import kesares.textadventure.io.InputManager;
 import kesares.textadventure.io.MenuPrinter;
 import kesares.textadventure.io.OutputManager;
 import kesares.textadventure.util.lang.LanguageSelector;
-import kesares.textadventure.util.lang.Strings;
 
 import java.util.Locale;
 
 public final class Settings {
+
+    private static final LanguageSelector LANGUAGE_SELECTOR = LanguageSelector.getInstance();
 
     private Settings() {
         throw new UnsupportedOperationException();
@@ -22,23 +23,24 @@ public final class Settings {
            case 1 -> changeLanguage();
            case 2 -> {}
            default -> {
-               System.out.printf(Strings.optionDoesntExist + "\r\n", option);
+               OutputManager.printOptionDoesntExist(option);
+               InputManager.enterToContinue();
                changeSettings();
            }
         }
     }
 
     private static void changeLanguage() {
-        LanguageSelector languageSelector = LanguageSelector.getInstance();
         OutputManager.clearConsole();
         MenuPrinter.printLanguageSelectionMenu();
         byte option = InputManager.enterByte("> ");
         switch (option) {
-            case 1 -> languageSelector.changeLanguageTo(Locale.ENGLISH);
-            case 2 -> languageSelector.changeLanguageTo(Locale.GERMAN);
+            case 1 -> LANGUAGE_SELECTOR.changeLanguageTo(Locale.ENGLISH);
+            case 2 -> LANGUAGE_SELECTOR.changeLanguageTo(Locale.GERMAN);
             case 3 -> {}
             default -> {
-                System.out.printf(Strings.optionDoesntExist + "\r\n", option);
+                OutputManager.printOptionDoesntExist(option);
+                InputManager.enterToContinue();
                 changeLanguage();
             }
         }

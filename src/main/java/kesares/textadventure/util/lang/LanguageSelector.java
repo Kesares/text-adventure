@@ -1,6 +1,5 @@
 package kesares.textadventure.util.lang;
 
-import kesares.textadventure.util.Maths;
 import kesares.textadventure.util.XMLLoader;
 
 import java.util.Locale;
@@ -33,13 +32,13 @@ public class LanguageSelector {
     private void setLanguageResources() {
         Strings.enterContinue = this.languageProperties.getProperty("enterContinue");
         Strings.invalidInput = this.languageProperties.getProperty("invalidInput");
-        Strings.optionDoesntExist = this.languageProperties.getProperty("optionDoesntExist");
+        Strings.optionDoesntExist = Strings.format(this.languageProperties.getProperty("optionDoesntExist"));
 
         // MenuPrinter-Class
-        Strings.mainMenu = Maths.formatMenuString(this.languageProperties.getProperty("mainMenu"));
-        Strings.settingsMenu = Maths.formatMenuString(this.languageProperties.getProperty("settingsMenu"));
+        Strings.mainMenu = Strings.format(this.languageProperties.getProperty("mainMenu"));
+        Strings.settingsMenu = Strings.format(this.languageProperties.getProperty("settingsMenu"));
         Strings.settingsMenuTitle = this.languageProperties.getProperty("settingsMenuTitle");
-        Strings.langSelectionMenu = Maths.formatMenuString(this.languageProperties.getProperty("langSelectionMenu"));
+        Strings.langSelectionMenu = Strings.format(this.languageProperties.getProperty("langSelectionMenu"));
         Strings.langSelectionMenuTitle = this.languageProperties.getProperty("langSelectionMenuTitle");
     }
 }

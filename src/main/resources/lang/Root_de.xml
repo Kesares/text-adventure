@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
-    <entry key="optionDoesntExist">Die Option '%d' gibt es nicht.</entry>
+    <entry key="optionDoesntExist">Die Option '%d' gibt es nicht.|</entry>
     <entry key="invalidInput">Ungültige Eingabe. Gib eine Zahl ein!</entry>
     <entry key="enterContinue">Drücke 'Enter' um fortzufahren...</entry>
     <entry key="mainMenu">1: Story fortsetzen...|2: Charakterinfo|3: Inventar|4: Einstellungen|5: Exit</entry>

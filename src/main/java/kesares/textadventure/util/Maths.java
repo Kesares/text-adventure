@@ -17,8 +17,4 @@ public final class Maths {
     public static boolean isNull(Object object) {
         return object == null;
     }
-
-    public static String formatMenuString(String text) {
-        return text.replaceAll("\\|", "\r\n");
-    }
 }
