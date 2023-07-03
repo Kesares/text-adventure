@@ -11,4 +11,5 @@
     <entry key="langSelectionMenuTitle">Sprachauswahl</entry>
     <entry key="playerStatsTitle">Charakterinfo: </entry>
     <entry key="inventoryTitle">Inventar</entry>
+    <entry key="peacefulJourney">Deine Reise verlief ruhig.</entry>
 </properties>

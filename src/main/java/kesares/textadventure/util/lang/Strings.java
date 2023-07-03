@@ -17,6 +17,9 @@ public final class Strings {
     public static String playerStatsTitle;
     public static String inventoryTitle;
 
+    // Story-Class
+    public static String peacefulJourney;
+
     private Strings() {
         throw new UnsupportedOperationException();
     }

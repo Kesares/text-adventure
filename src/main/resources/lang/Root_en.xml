@@ -11,4 +11,5 @@
     <entry key="langSelectionMenuTitle">Language Selection</entry>
     <entry key="playerStatsTitle">Character info: </entry>
     <entry key="inventoryTitle">Inventory</entry>
+    <entry key="peacefulJourney">Your journey went smoothly.</entry>
 </properties>

@@ -1,6 +1,5 @@
 package kesares.textadventure.entity;
 
-import kesares.textadventure.io.InputManager;
 import kesares.textadventure.io.OutputManager;
 import kesares.textadventure.util.lang.Strings;
 
@@ -15,7 +14,6 @@ public class Player extends Entity {
         OutputManager.printTitle(Strings.playerStatsTitle + this.name);
         System.out.println(this);
         OutputManager.printBoldPartingLine();
-        InputManager.enterToContinue();
     }
 
     public void printInventory() {
@@ -23,7 +21,6 @@ public class Player extends Entity {
         OutputManager.printTitle(Strings.inventoryTitle);
         System.out.println("Coming soon");
         OutputManager.printBoldPartingLine();
-        InputManager.enterToContinue();
     }
 
     @Override

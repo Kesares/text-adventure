@@ -12,10 +12,12 @@ public class Game {
 
     private boolean isRunning;
     private final Player player;
+    private final Story story;
 
     public Game() {
         this.isRunning = true;
         this.player = new Player();
+        this.story = new Story(this.player);
         this.init();
     }
 
@@ -24,18 +26,18 @@ public class Game {
     }
 
     public void update() {
+        InputManager.enterToContinue();
         OutputManager.clearConsole();
         MenuPrinter.printMainMenu();
         byte option = InputManager.enterByte("> ");
         switch (option) {
-            case 1 -> System.out.println("Continue story...");
+            case 1 -> this.story.continueJourney();
             case 2 -> this.player.printStats();
             case 3 -> this.player.printInventory();
             case 4 -> Settings.changeSettings();
             case 5 -> this.exit();
             default -> OutputManager.printOptionDoesntExist(option);
         }
-        InputManager.enterToContinue();
     }
 
     private void exit() {

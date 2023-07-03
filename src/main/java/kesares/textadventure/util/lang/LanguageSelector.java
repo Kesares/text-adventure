@@ -44,5 +44,8 @@ public class LanguageSelector {
         // Player-Class
         Strings.playerStatsTitle = this.languageProperties.getProperty("playerStatsTitle");
         Strings.inventoryTitle = this.languageProperties.getProperty("inventoryTitle");
+
+        // Story-Class
+        Strings.peacefulJourney = this.languageProperties.getProperty("peacefulJourney");
     }
 }

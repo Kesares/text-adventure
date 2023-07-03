@@ -10,6 +10,10 @@ public final class Maths {
         throw new UnsupportedOperationException();
     }
 
+    public static int getRandomNumberBetween(int min, int max) {
+        return (int) (Math.random() * (max - min) + min);
+    }
+
     public static boolean getRandomBoolean() {
         return RANDOM.nextBoolean();
     }
