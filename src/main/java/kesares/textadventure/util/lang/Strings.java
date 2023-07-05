@@ -20,6 +20,12 @@ public final class Strings {
     // Story-Class
     public static String peacefulJourney;
 
+    // Game-Class
+    public static String whatIsYourPlayerName;
+    public static String playerName;
+    public static String playerNameCorrect;
+    public static String yesNo;
+
     private Strings() {
         throw new UnsupportedOperationException();
     }

@@ -47,5 +47,11 @@ public class LanguageSelector {
 
         // Story-Class
         Strings.peacefulJourney = this.languageProperties.getProperty("peacefulJourney");
+
+        // Game-Class
+        Strings.whatIsYourPlayerName = this.languageProperties.getProperty("whatIsYourPlayerName");
+        Strings.playerName = this.languageProperties.getProperty("playerName");
+        Strings.playerNameCorrect = this.languageProperties.getProperty("playerNameCorrect");
+        Strings.yesNo = Strings.format(this.languageProperties.getProperty("yesNo"));
     }
 }

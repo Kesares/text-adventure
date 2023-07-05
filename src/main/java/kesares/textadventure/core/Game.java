@@ -5,6 +5,7 @@ import kesares.textadventure.io.InputManager;
 import kesares.textadventure.io.MenuPrinter;
 import kesares.textadventure.io.OutputManager;
 import kesares.textadventure.util.lang.LanguageSelector;
+import kesares.textadventure.util.lang.Strings;
 
 import java.util.Locale;
 
@@ -15,14 +16,29 @@ public class Game {
     private final Story story;
 
     public Game() {
-        this.isRunning = true;
-        this.player = new Player();
-        this.story = new Story(this.player);
         this.init();
+        this.isRunning = true;
+        this.player = new Player("undefined");
+        this.story = new Story(this.player);
+    }
+
+    private String enterPlayerName() {
+        boolean isPlayerNameSet = false;
+        String name;
+
+        do {
+            OutputManager.printTitle(Strings.whatIsYourPlayerName);
+            name = InputManager.enterString(Strings.playerName);
+            OutputManager.clearConsole();
+            OutputManager.printTitle(String.format(Strings.playerNameCorrect, name));
+            byte option = InputManager.enterByte(Strings.yesNo);
+            if (option == 1) isPlayerNameSet = true;
+        } while(!isPlayerNameSet);
+        return name;
     }
 
     private void init() {
-        LanguageSelector.getInstance().changeLanguageTo(Locale.GERMAN);
+        LanguageSelector.getInstance().changeLanguageTo(Locale.ENGLISH);
     }
 
     public void update() {

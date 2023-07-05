@@ -12,4 +12,8 @@
     <entry key="playerStatsTitle">Charakterinfo: </entry>
     <entry key="inventoryTitle">Inventar</entry>
     <entry key="peacefulJourney">Deine Reise verlief ruhig.</entry>
+    <entry key="whatIsYourPlayerName">Was ist dein Spielername?</entry>
+    <entry key="playerName">Spielername: </entry>
+    <entry key="playerNameCorrect">Dein Name ist '%s', korrekt?</entry>
+    <entry key="yesNo">1: Ja|2: Nein|&gt; </entry>
 </properties>
