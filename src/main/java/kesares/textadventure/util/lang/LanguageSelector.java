@@ -46,6 +46,7 @@ public class LanguageSelector {
         Strings.inventoryTitle = this.languageProperties.getProperty("inventoryTitle");
 
         // Story-Class
+        Strings.storyMenu = Strings.format(this.languageProperties.getProperty("storyMenu"));
         Strings.peacefulJourney = this.languageProperties.getProperty("peacefulJourney");
 
         // Game-Class

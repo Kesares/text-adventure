@@ -25,4 +25,10 @@ public final class MenuPrinter {
         System.out.println(Strings.langSelectionMenu);
         OutputManager.printBoldPartingLine();
     }
+
+    public static void printStoryMenu() {
+        OutputManager.printTitle("Story");
+        System.out.println(Strings.storyMenu);
+        OutputManager.printBoldPartingLine();
+    }
 }

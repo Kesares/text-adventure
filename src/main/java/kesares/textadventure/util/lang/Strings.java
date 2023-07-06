@@ -18,6 +18,7 @@ public final class Strings {
     public static String inventoryTitle;
 
     // Story-Class
+    public static String storyMenu;
     public static String peacefulJourney;
 
     // Game-Class

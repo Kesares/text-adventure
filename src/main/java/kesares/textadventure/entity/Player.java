@@ -6,7 +6,7 @@ import kesares.textadventure.util.lang.Strings;
 public class Player extends Entity {
 
     public Player(String name) {
-        super(name, 10, 1, 0, 0, 3, 0, 0);
+        super(name, new int[] {10, 1, 0, 0, 3, 0, 0});
     }
 
     public void printStats() {
