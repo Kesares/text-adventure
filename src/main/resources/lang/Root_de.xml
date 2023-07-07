@@ -22,4 +22,8 @@
     <entry key="runAway">Wegrennen</entry>
     <entry key="takeDamage">%s hat dir %d Schaden zugefügt.|</entry>
     <entry key="makeDamage">Du hast %s %d Schaden zugefügt.|</entry>
+    <entry key="lostBattle">Du hast den Kampf verloren...</entry>
+    <entry key="defeatedEntity">Du hast %s (%d) besiegt.</entry>
+    <entry key="gotExp">Du hast %d XP erhalten!|</entry>
+    <entry key="gotGold">Du hast %d Gold erhalten!|</entry>
 </properties>

@@ -33,6 +33,10 @@ public final class Strings {
     public static String runAway;
     public static String makeDamage;
     public static String takeDamage;
+    public static String lostBattle;
+    public static String defeatedEntity;
+    public static String gotXP;
+    public static String gotGold;
 
     private Strings() {
         throw new UnsupportedOperationException();

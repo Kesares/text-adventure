@@ -60,7 +60,7 @@ public class Battle {
         if (this.player.isAlive()) {
             this.playerWins();
         } else {
-            OutputManager.printTitle("You lost the battle...");
+            OutputManager.printTitle(Strings.lostBattle);
             // invaderWins(), lostXp(), lostGold()
             // or end of story
         }
@@ -68,11 +68,11 @@ public class Battle {
     }
 
     private void playerWins() {
-        OutputManager.printTitle(String.format("You defeated %s (%d).", this.invader.getName(), this.invader.getLevel()));
+        OutputManager.printTitle(String.format(Strings.defeatedEntity, this.invader.getName(), this.invader.getLevel()));
         this.player.addExp(this.player.getExp());
         this.player.addGold(this.invader.getGold());
-        System.out.printf("You got %d XP!\r\n", this.invader.getExp());
-        System.out.printf("You got %d gold!\r\n", this.invader.getGold());
+        System.out.printf(Strings.gotXP, this.invader.getExp());
+        System.out.printf(Strings.gotGold, this.invader.getGold());
         OutputManager.printBoldPartingLine();
         InputManager.enterToContinue();
     }

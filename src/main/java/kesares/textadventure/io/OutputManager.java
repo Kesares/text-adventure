@@ -26,7 +26,7 @@ public final class OutputManager {
 
     public static void printThinPartingLine() {
         for (counter = 0; counter < PRINT_PARTING_LINE; counter++) {
-            System.out.println('-');
+            System.out.print('-');
         }
         System.out.println();
     }

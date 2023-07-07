@@ -22,4 +22,8 @@
     <entry key="runAway">Run away</entry>
     <entry key="takeDamage">%s has dealt you %d damage.|</entry>
     <entry key="makeDamage">You have dealt %s %d damage.|</entry>
+    <entry key="lostBattle">You lost the battle...</entry>
+    <entry key="defeatedEntity">You defeated %s (%d).</entry>
+    <entry key="gotExp">You got %d XP!|</entry>
+    <entry key="gotGold">You got %d gold!|</entry>
 </properties>
