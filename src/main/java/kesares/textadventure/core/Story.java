@@ -10,7 +10,7 @@ import kesares.textadventure.util.lang.Strings;
 
 public class Story {
 
-    private static final String[] INVADERS = {"Oger", "Goblin", "Greif"};
+    private static final String[] INVADERS = {"Ogre", "Goblin", "Griffon"};
 
     private boolean isRunning;
     private final Player player;

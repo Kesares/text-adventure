@@ -1,9 +1,11 @@
 package kesares.textadventure.entity;
 
+import kesares.textadventure.util.Adjust;
 import kesares.textadventure.util.Maths;
 
 public class Invader extends Entity {
 
+    @Adjust
     public Invader(String name, int playerLevel) {
         super(name, new int[] {0, 0, 0, 0, 0, 0, 0});
         int[] properties = this.calculateInvaderProperties(playerLevel);

@@ -10,6 +10,7 @@
     <entry key="langSelectionMenu">1: Englisch|2: Deutsch||3: Zurück</entry>
     <entry key="settingsMenuTitle">Einstellungen</entry>
     <entry key="langSelectionMenuTitle">Sprachauswahl</entry>
+    <entry key="battleMenu">1: Angreifen|2: Wegrennen</entry>
     <entry key="playerStatsTitle">Charakterinfo: </entry>
     <entry key="inventoryTitle">Inventar</entry>
     <entry key="peacefulJourney">Deine Reise verlief ruhig.</entry>
@@ -17,4 +18,8 @@
     <entry key="playerName">Spielername: </entry>
     <entry key="playerNameCorrect">Dein Name ist '%s', korrekt?</entry>
     <entry key="yesNo">1: Ja|2: Nein|&gt; </entry>
+    <entry key="beingAttacked">Du wirst von %s (%d) angegriffen. Verteidige dich!</entry>
+    <entry key="runAway">Wegrennen</entry>
+    <entry key="takeDamage">%s hat dir %d Schaden zugefügt.|</entry>
+    <entry key="makeDamage">Du hast %s %d Schaden zugefügt.|</entry>
 </properties>

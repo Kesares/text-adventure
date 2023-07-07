@@ -40,6 +40,7 @@ public class LanguageSelector {
         Strings.settingsMenuTitle = this.languageProperties.getProperty("settingsMenuTitle");
         Strings.langSelectionMenu = Strings.format(this.languageProperties.getProperty("langSelectionMenu"));
         Strings.langSelectionMenuTitle = this.languageProperties.getProperty("langSelectionMenuTitle");
+        Strings.battleMenu = this.languageProperties.getProperty("battleMenu");
 
         // Player-Class
         Strings.playerStatsTitle = this.languageProperties.getProperty("playerStatsTitle");
@@ -54,5 +55,11 @@ public class LanguageSelector {
         Strings.playerName = this.languageProperties.getProperty("playerName");
         Strings.playerNameCorrect = this.languageProperties.getProperty("playerNameCorrect");
         Strings.yesNo = Strings.format(this.languageProperties.getProperty("yesNo"));
+
+        // Battle-Class
+        Strings.beingAttacked = Strings.format(this.languageProperties.getProperty("beingAttacked"));
+        Strings.runAway = this.languageProperties.getProperty("runAway");
+        Strings.makeDamage = Strings.format(this.languageProperties.getProperty("makeDamage"));
+        Strings.takeDamage = Strings.format(this.languageProperties.getProperty("takeDamage"));
     }
 }

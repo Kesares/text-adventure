@@ -12,6 +12,7 @@ public final class Strings {
     public static String settingsMenuTitle;
     public static String langSelectionMenu;
     public static String langSelectionMenuTitle;
+    public static String battleMenu;
 
     // Player-Class
     public static String playerStatsTitle;
@@ -26,6 +27,12 @@ public final class Strings {
     public static String playerName;
     public static String playerNameCorrect;
     public static String yesNo;
+
+    // Battle-Class
+    public static String beingAttacked;
+    public static String runAway;
+    public static String makeDamage;
+    public static String takeDamage;
 
     private Strings() {
         throw new UnsupportedOperationException();
