@@ -63,7 +63,7 @@ public class LanguageSelector {
         Strings.takeDamage = Strings.format(this.languageProperties.getProperty("takeDamage"));
         Strings.lostBattle = this.languageProperties.getProperty("lostBattle");
         Strings.defeatedEntity = this.languageProperties.getProperty("defeatedEntity");
-        Strings.gotXP = Strings.format(this.languageProperties.getProperty("gotXP"));
+        Strings.gotXP = Strings.format(this.languageProperties.getProperty("gotExp"));
         Strings.gotGold = Strings.format(this.languageProperties.getProperty("gotGold"));
     }
 }

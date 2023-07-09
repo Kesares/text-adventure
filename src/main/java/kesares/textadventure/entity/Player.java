@@ -5,6 +5,8 @@ import kesares.textadventure.util.lang.Strings;
 
 public class Player extends Entity {
 
+    private static final int[] REQUIRED_XP_FOR_LEVEL_UP = {15, 24, 34, 43, 53, 63, 72, 82, 92, 101, 111, 121, 130, 140, 149};
+
     public Player(String name) {
         super(name, new int[] {10, 1, 0, 0, 3, 0, 0});
     }

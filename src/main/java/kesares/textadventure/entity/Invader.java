@@ -22,7 +22,7 @@ public class Invader extends Entity {
     private int[] calculateInvaderProperties(int playerLevel) {
         final int maxHP = this.calculateValue(10, 0.15, 7, playerLevel);
         final int level = Maths.getRandomNumberBetween(Math.max(playerLevel - 2, 1), playerLevel + 2);
-        final int exp = this.calculateValue((int) (Math.random() * 3 + 1), 0.15, 10, playerLevel);
+        final int exp = this.calculateValue((int) (Math.random() * 3 + 1), 0.43, 3.19, playerLevel);
         final int gold = this.calculateValue((int) (Math.random() * 5 + 3), 0.15, 10, playerLevel);
         final int atk = this.calculateValue(1, 0.05, 0.5, playerLevel);
         final int def = this.calculateValue(0, 0.05, 0.5, playerLevel);

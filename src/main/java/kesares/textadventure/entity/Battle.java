@@ -69,7 +69,7 @@ public class Battle {
 
     private void playerWins() {
         OutputManager.printTitle(String.format(Strings.defeatedEntity, this.invader.getName(), this.invader.getLevel()));
-        this.player.addExp(this.player.getExp());
+        this.player.addExp(this.invader.getExp());
         this.player.addGold(this.invader.getGold());
         System.out.printf(Strings.gotXP, this.invader.getExp());
         System.out.printf(Strings.gotGold, this.invader.getGold());

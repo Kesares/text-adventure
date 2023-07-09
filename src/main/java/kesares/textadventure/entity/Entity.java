@@ -75,6 +75,6 @@ public abstract class Entity {
     }
 
     public void addGold(int gold) {
-        this.gold = gold;
+        this.gold += gold;
     }
 }
