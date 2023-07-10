@@ -31,7 +31,10 @@ public class Battle {
 
             switch (option) {
                 case 1 -> this.attack();
-                case 2 -> System.out.println(Strings.runAway);
+                case 2 -> {
+                    System.out.println(Strings.runAway);
+                    return;
+                }
                 default -> OutputManager.printOptionDoesntExist(option);
             }
         } while(this.areBothEntitiesAlive());
@@ -43,7 +46,10 @@ public class Battle {
         int takeDamage = Math.max(this.invader.calculateAtk() - this.player.calculateDef(), 0);
         this.player.removeHP(takeDamage);
         this.invader.removeHP(makeDamage);
+        this.printAttackInfo(takeDamage, makeDamage);
+    }
 
+    private void printAttackInfo(int takeDamage, int makeDamage) {
         OutputManager.printThinPartingLine();
         System.out.printf(Strings.makeDamage, this.invader.getName(), makeDamage);
         System.out.printf(Strings.takeDamage, this.invader.getName(), takeDamage);
@@ -74,6 +80,5 @@ public class Battle {
         System.out.printf(Strings.gotXP, this.invader.getExp());
         System.out.printf(Strings.gotGold, this.invader.getGold());
         OutputManager.printBoldPartingLine();
-        InputManager.enterToContinue();
     }
 }

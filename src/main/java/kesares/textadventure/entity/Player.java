@@ -27,15 +27,38 @@ public class Player extends Entity {
 
     @Override
     public String toString() {
-        return String.format("Max HP:\t%10d\r\nHP:\t\t%10d\r\nLevel:\t%10d\r\nXP:\t\t%10d\r\nGold:\t%10d\r\nATK:\t%10d\r\nDEF:\t%10d\r\nArmor:\t%10d",
+        return String.format("Max HP:\t%10d\r\nHP:\t\t%10d\r\nLevel:\t%10d\r\nXP:\t\t%10d/%d\r\nGold:\t%10d\r\nATK:\t%10d\r\nDEF:\t%10d\r\nArmor:\t%10d",
                 this.maxHP,
                 this.HP,
                 this.level,
                 this.exp,
+                REQUIRED_XP_FOR_LEVEL_UP[this.level - 1],
                 this.gold,
                 this.atk,
                 this.def,
                 this.armor
         );
+    }
+
+    @Override
+    public void addExp(int exp) {
+        super.addExp(exp);
+        this.checkLevelUp();
+    }
+
+    private void checkLevelUp() {
+        for (int level = REQUIRED_XP_FOR_LEVEL_UP.length - 1; level >= 0; level--) {
+            if (this.hasRequiredExpForLevelUp(level)) {
+                this.level++;
+                this.maxHP++;
+                this.HP++;
+                OutputManager.printTitle(String.format("You are now level %d.", this.level));
+                return;
+            }
+        }
+    }
+
+    private boolean hasRequiredExpForLevelUp(int level) {
+        return this.exp >= REQUIRED_XP_FOR_LEVEL_UP[level];
     }
 }
