@@ -41,8 +41,4 @@ public final class Strings {
     private Strings() {
         throw new UnsupportedOperationException();
     }
-
-    public static String format(String text) {
-        return text.replaceAll("\\|", "\r\n");
-    }
 }

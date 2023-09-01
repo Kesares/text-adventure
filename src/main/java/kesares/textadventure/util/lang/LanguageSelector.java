@@ -1,6 +1,6 @@
 package kesares.textadventure.util.lang;
 
-import kesares.textadventure.util.XMLLoader;
+import kesares.textadventure.util.ResourceLibrary;
 
 import java.util.Locale;
 import java.util.Properties;
@@ -9,11 +9,11 @@ public class LanguageSelector {
 
     private static final LanguageSelector INSTANCE = new LanguageSelector();
 
-    private final XMLLoader xmlLoader;
+    private final ResourceLibrary resourceLibrary;
     private Properties languageProperties;
 
     private LanguageSelector() {
-        this.xmlLoader = XMLLoader.getInstance();
+        this.resourceLibrary = ResourceLibrary.getInstance();
     }
 
     public static LanguageSelector getInstance() {
@@ -22,9 +22,9 @@ public class LanguageSelector {
 
     public void changeLanguageTo(Locale locale) {
         if (locale == Locale.ENGLISH) {
-            this.languageProperties = this.xmlLoader.getProperties("Root_en");
+            this.languageProperties = this.resourceLibrary.getLangResource("root_en");
         } else if (locale == Locale.GERMAN) {
-            this.languageProperties = this.xmlLoader.getProperties("Root_de");
+            this.languageProperties = this.resourceLibrary.getLangResource("root_de");
         }
         this.setLanguageResources();
     }
@@ -32,38 +32,38 @@ public class LanguageSelector {
     private void setLanguageResources() {
         Strings.enterContinue = this.languageProperties.getProperty("enterContinue");
         Strings.invalidInput = this.languageProperties.getProperty("invalidInput");
-        Strings.optionDoesntExist = Strings.format(this.languageProperties.getProperty("optionDoesntExist"));
+        Strings.optionDoesntExist = this.languageProperties.getProperty("optionDoesntExist");
 
         // MenuPrinter-Class
-        Strings.mainMenu = Strings.format(this.languageProperties.getProperty("mainMenu"));
-        Strings.settingsMenu = Strings.format(this.languageProperties.getProperty("settingsMenu"));
+        Strings.mainMenu = this.languageProperties.getProperty("mainMenu");
+        Strings.settingsMenu = this.languageProperties.getProperty("settingsMenu");
         Strings.settingsMenuTitle = this.languageProperties.getProperty("settingsMenuTitle");
-        Strings.langSelectionMenu = Strings.format(this.languageProperties.getProperty("langSelectionMenu"));
+        Strings.langSelectionMenu = this.languageProperties.getProperty("langSelectionMenu");
         Strings.langSelectionMenuTitle = this.languageProperties.getProperty("langSelectionMenuTitle");
-        Strings.battleMenu = Strings.format(this.languageProperties.getProperty("battleMenu"));
+        Strings.battleMenu = this.languageProperties.getProperty("battleMenu");
 
         // Player-Class
         Strings.playerStatsTitle = this.languageProperties.getProperty("playerStatsTitle");
         Strings.inventoryTitle = this.languageProperties.getProperty("inventoryTitle");
 
         // Story-Class
-        Strings.storyMenu = Strings.format(this.languageProperties.getProperty("storyMenu"));
+        Strings.storyMenu = this.languageProperties.getProperty("storyMenu");
         Strings.peacefulJourney = this.languageProperties.getProperty("peacefulJourney");
 
         // Game-Class
         Strings.whatIsYourPlayerName = this.languageProperties.getProperty("whatIsYourPlayerName");
         Strings.playerName = this.languageProperties.getProperty("playerName");
         Strings.playerNameCorrect = this.languageProperties.getProperty("playerNameCorrect");
-        Strings.yesNo = Strings.format(this.languageProperties.getProperty("yesNo"));
+        Strings.yesNo = this.languageProperties.getProperty("yesNo");
 
         // Battle-Class
-        Strings.beingAttacked = Strings.format(this.languageProperties.getProperty("beingAttacked"));
+        Strings.beingAttacked = this.languageProperties.getProperty("beingAttacked");
         Strings.runAway = this.languageProperties.getProperty("runAway");
-        Strings.makeDamage = Strings.format(this.languageProperties.getProperty("makeDamage"));
-        Strings.takeDamage = Strings.format(this.languageProperties.getProperty("takeDamage"));
+        Strings.makeDamage = this.languageProperties.getProperty("makeDamage");
+        Strings.takeDamage = this.languageProperties.getProperty("takeDamage");
         Strings.lostBattle = this.languageProperties.getProperty("lostBattle");
         Strings.defeatedEntity = this.languageProperties.getProperty("defeatedEntity");
-        Strings.gotXP = Strings.format(this.languageProperties.getProperty("gotExp"));
-        Strings.gotGold = Strings.format(this.languageProperties.getProperty("gotGold"));
+        Strings.gotXP = this.languageProperties.getProperty("gotExp");
+        Strings.gotGold = this.languageProperties.getProperty("gotGold");
     }
 }
