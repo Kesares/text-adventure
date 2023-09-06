@@ -10,31 +10,35 @@ public final class MenuPrinter {
         throw new UnsupportedOperationException();
     }
 
-    public static void printMainMenu() {
+    public static byte printMainMenu() {
         OutputManager.printTitle("Text Adventure");
         System.out.println(Strings.mainMenu);
         OutputManager.printBoldPartingLine();
+        return InputManager.enterByte("> ");
     }
 
-    public static void printSettingsMenu() {
+    public static byte printSettingsMenu() {
         OutputManager.printTitle(Strings.settingsMenuTitle);
         System.out.println(Strings.settingsMenu);
         OutputManager.printBoldPartingLine();
+        return InputManager.enterByte("> ");
     }
 
-    public static void printLanguageSelectionMenu() {
+    public static byte printLanguageSelectionMenu() {
         OutputManager.printTitle(Strings.langSelectionMenuTitle);
         System.out.println(Strings.langSelectionMenu);
         OutputManager.printBoldPartingLine();
+        return InputManager.enterByte("> ");
     }
 
-    public static void printStoryMenu() {
+    public static byte printStoryMenu() {
         OutputManager.printTitle("Story");
         System.out.println(Strings.storyMenu);
         OutputManager.printBoldPartingLine();
+        return InputManager.enterByte("> ");
     }
 
-    public static void printBattleMenu(Player player, Invader invader) {
+    public static byte printBattleMenu(Player player, Invader invader) {
         OutputManager.printTitle("Battle");
         System.out.printf("%s (%d)\r\nHP: %d/%d\r\n", player.getName(), player.getLevel(), player.getHP(), player.getMaxHP());
         OutputManager.printThinPartingLine();
@@ -42,5 +46,6 @@ public final class MenuPrinter {
         OutputManager.printThinPartingLine();
         System.out.println(Strings.battleMenu);
         OutputManager.printBoldPartingLine();
+        return InputManager.enterByte("> ");
     }
 }

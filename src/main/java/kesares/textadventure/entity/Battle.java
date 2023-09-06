@@ -26,9 +26,7 @@ public class Battle {
         byte option;
         do {
             OutputManager.clearConsole();
-            MenuPrinter.printBattleMenu(this.player, this.invader);
-            option = InputManager.enterByte("> ");
-
+            option = MenuPrinter.printBattleMenu(this.player, this.invader);
             switch (option) {
                 case 1 -> this.attack();
                 case 2 -> {

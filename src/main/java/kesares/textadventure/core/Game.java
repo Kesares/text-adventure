@@ -25,8 +25,7 @@ public class Game {
     public void update() {
         InputManager.enterToContinue();
         OutputManager.clearConsole();
-        MenuPrinter.printMainMenu();
-        byte option = InputManager.enterByte("> ");
+        byte option = MenuPrinter.printMainMenu();
         switch (option) {
             case 1 -> this.story.run();
             case 2 -> Settings.changeSettings();

@@ -17,8 +17,7 @@ public final class Settings {
 
     public static void changeSettings() {
         OutputManager.clearConsole();
-        MenuPrinter.printSettingsMenu();
-        byte option = InputManager.enterByte("> ");
+        byte option = MenuPrinter.printSettingsMenu();
         switch (option) {
            case 1 -> changeLanguage();
            case 2 -> {}
@@ -32,8 +31,7 @@ public final class Settings {
 
     private static void changeLanguage() {
         OutputManager.clearConsole();
-        MenuPrinter.printLanguageSelectionMenu();
-        byte option = InputManager.enterByte("> ");
+        byte option = MenuPrinter.printLanguageSelectionMenu();
         switch (option) {
             case 1 -> LANGUAGE_SELECTOR.changeLanguageTo(Locale.ENGLISH);
             case 2 -> LANGUAGE_SELECTOR.changeLanguageTo(Locale.GERMAN);

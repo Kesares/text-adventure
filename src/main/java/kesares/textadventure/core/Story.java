@@ -12,33 +12,25 @@ public class Story {
 
     private static final String[] INVADERS = {"Ogre", "Goblin", "Griffon"};
 
-    private boolean isRunning;
     private final Player player;
 
     public Story() {
-        this.isRunning = false;
         this.player = new Player("undefined");
     }
 
     public void run() {
-        this.isRunning = true;
         byte option;
-        while(this.isRunning) {
+        while(true) {
             InputManager.enterToContinue();
             OutputManager.clearConsole();
-            MenuPrinter.printStoryMenu();
-            option = InputManager.enterByte("> ");
-            this.update(option);
-        }
-    }
-
-    private void update(byte option) {
-        switch (option) {
-            case 1 -> this.continueJourney();
-            case 2 -> this.player.printStats();
-            case 3 -> this.player.printInventory();
-            case 4 -> this.isRunning = false;
-            default -> OutputManager.printOptionDoesntExist(option);
+            option = MenuPrinter.printStoryMenu();
+            switch (option) {
+                case 1 -> this.continueJourney();
+                case 2 -> this.player.printStats();
+                case 3 -> this.player.printInventory();
+                case 4 -> { return; }
+                default -> OutputManager.printOptionDoesntExist(option);
+            }
         }
     }
 
