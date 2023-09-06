@@ -15,7 +15,8 @@ public class Story {
     private final Player player;
 
     public Story() {
-        this.player = new Player("undefined");
+        String name = this.enterPlayerName();
+        this.player = new Player(name);
     }
 
     public void run() {
