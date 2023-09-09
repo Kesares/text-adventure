@@ -35,19 +35,16 @@ public class Player extends Entity {
     }
 
     private void checkLevelUp() {
-        for (int level = REQUIRED_XP_FOR_LEVEL_UP.length - 1; level >= 0; level--) {
-            if (this.hasRequiredExpForLevelUp(level)) {
-                this.level++;
-                this.maxHP++;
-                this.HP++;
-                OutputManager.printTitle(String.format(Strings.levelUp, this.level));
-                return;
-            }
+        while (this.hasRequiredExpForLevelUp()) {
+            this.level++;
+            this.maxHP++;
+            this.HP++;
+            OutputManager.printTitle(String.format(Strings.levelUp, this.level));
         }
     }
 
-    private boolean hasRequiredExpForLevelUp(int level) {
-        return this.exp >= REQUIRED_XP_FOR_LEVEL_UP[level];
+    private boolean hasRequiredExpForLevelUp() {
+        return this.exp >= REQUIRED_XP_FOR_LEVEL_UP[this.level - 1];
     }
 
     @Override
