@@ -16,31 +16,16 @@ public class Player extends Entity {
 
     public void printStats() {
         OutputManager.clearConsole();
-        OutputManager.printTitle(Strings.playerStatsTitle + this.name);
+        OutputManager.printTitle(String.format(Strings.playerStatsTitle, this.name));
         System.out.println(this);
         OutputManager.printBoldPartingLine();
     }
 
     public void printInventory() {
         OutputManager.clearConsole();
-        OutputManager.printTitle(Strings.inventoryTitle);
+        OutputManager.printTitle(String.format(Strings.inventoryTitle, this.name));
         this.inventory.printInventory();
         OutputManager.printBoldPartingLine();
-    }
-
-    @Override
-    public String toString() {
-        return String.format("Max HP:\t%10d\r\nHP:\t\t%10d\r\nLevel:\t%10d\r\nXP:\t\t%10d/%d\r\nGold:\t%10d\r\nATK:\t%10d\r\nDEF:\t%10d\r\nArmor:\t%10d",
-                this.maxHP,
-                this.HP,
-                this.level,
-                this.exp,
-                REQUIRED_XP_FOR_LEVEL_UP[this.level - 1],
-                this.gold,
-                this.atk,
-                this.def,
-                this.armor
-        );
     }
 
     @Override
@@ -63,5 +48,20 @@ public class Player extends Entity {
 
     private boolean hasRequiredExpForLevelUp(int level) {
         return this.exp >= REQUIRED_XP_FOR_LEVEL_UP[level];
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Max HP:\t%10d\r\nHP:\t\t%10d\r\nLevel:\t%10d\r\nXP:\t\t%10d/%d\r\nGold:\t%10d\r\nATK:\t%10d\r\nDEF:\t%10d\r\nArmor:\t%10d",
+                this.maxHP,
+                this.HP,
+                this.level,
+                this.exp,
+                REQUIRED_XP_FOR_LEVEL_UP[this.level - 1],
+                this.gold,
+                this.atk,
+                this.def,
+                this.armor
+        );
     }
 }
