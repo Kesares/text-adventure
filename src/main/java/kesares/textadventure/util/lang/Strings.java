@@ -15,8 +15,9 @@ public final class Strings {
     public static String battleMenu;
 
     // Player-Class
-    public static String playerStatsTitle;
     public static String inventoryTitle;
+    public static String levelUp;
+    public static String playerStatsTitle;
 
     // Story-Class
     public static String storyMenu;

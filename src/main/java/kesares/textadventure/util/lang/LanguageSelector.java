@@ -43,8 +43,9 @@ public class LanguageSelector {
         Strings.battleMenu = this.languageProperties.getProperty("battleMenu");
 
         // Player-Class
-        Strings.playerStatsTitle = this.languageProperties.getProperty("playerStatsTitle");
         Strings.inventoryTitle = this.languageProperties.getProperty("inventoryTitle");
+        Strings.levelUp = this.languageProperties.getProperty("levelUp");
+        Strings.playerStatsTitle = this.languageProperties.getProperty("playerStatsTitle");
 
         // Story-Class
         Strings.storyMenu = this.languageProperties.getProperty("storyMenu");
