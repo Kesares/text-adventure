@@ -43,7 +43,7 @@ public class Story {
             Battle battle = new Battle(this.player, this.getRandomInvader());
             battle.begin();
         } else if (eventRate < 0.9) {
-            System.out.println(Strings.peacefulJourney);
+            OutputManager.printTitle(Strings.peacefulJourney);
         }
     }
 
