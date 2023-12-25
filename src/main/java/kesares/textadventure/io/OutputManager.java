@@ -1,5 +1,6 @@
 package kesares.textadventure.io;
 
+import kesares.textadventure.util.AnsiColor;
 import kesares.textadventure.util.lang.Strings;
 
 public final class OutputManager {
@@ -13,7 +14,11 @@ public final class OutputManager {
 
     public static void printTitle(String title) {
         printBoldPartingLine();
-        System.out.printf("%" + calculateCenterWidth(title) + "s\r\n", title);
+        System.out.printf("%s%" + calculateCenterWidth(title) + "s%s\r\n",
+                AnsiColor.YELLOW.getValue(),
+                title,
+                AnsiColor.RESET.getValue()
+        );
         printBoldPartingLine();
     }
 
