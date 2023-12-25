@@ -9,14 +9,14 @@ public class Invader extends Entity {
     public Invader(String name, int playerLevel) {
         super(name, new int[] {0, 0, 0, 0, 0, 0, 0});
         int[] properties = this.calculateInvaderProperties(playerLevel);
-        this.maxHP = properties[0];
-        this.HP = properties[0];
-        this.level = properties[1];
-        this.exp = properties[2];
-        this.gold = properties[3];
-        this.atk = properties[4];
-        this.def = properties[5];
-        this.armor = properties[6];
+        super.maxHP = properties[0];
+        super.HP = properties[0];
+        super.level = properties[1];
+        super.exp = properties[2];
+        super.gold = properties[3];
+        super.atk = properties[4];
+        super.def = properties[5];
+        super.armor = properties[6];
     }
 
     private int[] calculateInvaderProperties(int playerLevel) {
