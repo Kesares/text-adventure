@@ -3,15 +3,19 @@ package kesares.textadventure.util;
 import java.io.IOException;
 import java.util.Properties;
 
-public class ResourceLoader {
+public final class ResourceLoader {
 
-    public Properties loadPropertiesFrom(String path) {
-        Properties properties = new Properties();
+    private ResourceLoader() {
+        throw new UnsupportedOperationException();
+    }
+
+    public static Properties loadPropertiesFrom(String path) {
         try {
+            Properties properties = new Properties();
             properties.load(ResourceLoader.class.getResourceAsStream(path));
+            return properties;
         } catch (IOException e) {
             throw new RuntimeException("Error occur loading properties from path: " + path, e);
         }
-        return properties;
     }
 }
