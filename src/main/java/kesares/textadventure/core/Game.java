@@ -3,6 +3,7 @@ package kesares.textadventure.core;
 import kesares.textadventure.io.InputManager;
 import kesares.textadventure.io.MenuPrinter;
 import kesares.textadventure.io.OutputManager;
+import kesares.textadventure.util.lang.Language;
 import kesares.textadventure.util.lang.LanguageSelector;
 
 import java.util.Locale;
@@ -17,7 +18,7 @@ public class Game {
     }
 
     private void initResources() {
-        LanguageSelector.getInstance().changeLanguageTo(Locale.GERMAN);
+        LanguageSelector.getInstance().changeLanguageTo(Language.GERMAN);
     }
 
     public void update() {

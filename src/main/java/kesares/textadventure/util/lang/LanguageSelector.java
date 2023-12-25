@@ -20,11 +20,10 @@ public class LanguageSelector {
         return INSTANCE;
     }
 
-    public void changeLanguageTo(Locale locale) {
-        if (locale == Locale.ENGLISH) {
-            this.languageProperties = this.resourceLibrary.getLangResource(ResourceLibrary.LANG_EN);
-        } else if (locale == Locale.GERMAN) {
-            this.languageProperties = this.resourceLibrary.getLangResource(ResourceLibrary.LANG_DE);
+    public void changeLanguageTo(Language language) {
+        switch (language) {
+            case ENGLISH -> this.languageProperties = this.resourceLibrary.getLangResource(ResourceLibrary.LANG_EN);
+            case GERMAN -> this.languageProperties = this.resourceLibrary.getLangResource(ResourceLibrary.LANG_DE);
         }
         this.setLanguageResources();
     }
