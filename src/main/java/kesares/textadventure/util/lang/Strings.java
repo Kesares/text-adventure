@@ -20,8 +20,9 @@ public final class Strings {
     public static String playerStatsTitle;
 
     // Story-Class
-    public static String storyMenu;
+    public static String[] invaderNames;
     public static String peacefulJourney;
+    public static String storyMenu;
 
     // Game-Class
     public static String whatIsYourPlayerName;
@@ -41,5 +42,9 @@ public final class Strings {
 
     private Strings() {
         throw new UnsupportedOperationException();
+    }
+
+    public static String[] splitNames(String invaderNames) {
+        return invaderNames.split(", ");
     }
 }

@@ -10,8 +10,6 @@ import kesares.textadventure.util.lang.Strings;
 
 public class Story {
 
-    private static final String[] INVADERS = {"Ogre", "Goblin", "Griffon"};
-
     private final Player player;
 
     public Story() {
@@ -48,8 +46,8 @@ public class Story {
     }
 
     private Invader getRandomInvader() {
-        int index = (int) (Math.random() * INVADERS.length);
-        return new Invader(INVADERS[index], this.player.getLevel());
+        int index = (int) (Math.random() * Strings.invaderNames.length);
+        return new Invader(Strings.invaderNames[index], this.player.getLevel());
     }
 
     private String enterPlayerName() {
