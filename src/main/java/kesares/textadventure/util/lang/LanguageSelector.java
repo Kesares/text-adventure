@@ -22,9 +22,9 @@ public class LanguageSelector {
 
     public void changeLanguageTo(Locale locale) {
         if (locale == Locale.ENGLISH) {
-            this.languageProperties = this.resourceLibrary.getLangResource("root_en");
+            this.languageProperties = this.resourceLibrary.getLangResource(ResourceLibrary.LANG_EN);
         } else if (locale == Locale.GERMAN) {
-            this.languageProperties = this.resourceLibrary.getLangResource("root_de");
+            this.languageProperties = this.resourceLibrary.getLangResource(ResourceLibrary.LANG_DE);
         }
         this.setLanguageResources();
     }
