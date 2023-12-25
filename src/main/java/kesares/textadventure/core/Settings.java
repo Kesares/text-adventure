@@ -6,8 +6,6 @@ import kesares.textadventure.io.OutputManager;
 import kesares.textadventure.util.lang.Language;
 import kesares.textadventure.util.lang.LanguageSelector;
 
-import java.util.Locale;
-
 public final class Settings {
 
     private static final LanguageSelector LANGUAGE_SELECTOR = LanguageSelector.getInstance();

@@ -2,7 +2,6 @@ package kesares.textadventure.util.lang;
 
 import kesares.textadventure.util.ResourceLibrary;
 
-import java.util.Locale;
 import java.util.Properties;
 
 public class LanguageSelector {
