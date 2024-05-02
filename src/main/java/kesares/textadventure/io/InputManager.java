@@ -32,6 +32,46 @@ public final class InputManager {
         }
     }
 
+    public static short enterShort(String info) {
+        try {
+            return Short.parseShort(enterString(info));
+        } catch (NumberFormatException e) {
+            return enterShort(info);
+        }
+    }
+
+    public static int enterInt(String info) {
+        try {
+            return Integer.parseInt(enterString(info));
+        } catch (NumberFormatException e) {
+            return enterInt(info);
+        }
+    }
+
+    public static long enterLong(String info) {
+        try {
+            return Long.parseLong(enterString(info));
+        } catch (NumberFormatException e) {
+            return enterLong(info);
+        }
+    }
+
+    public static float enterFloat(String info) {
+        try {
+            return Float.parseFloat(enterString(info));
+        } catch (NumberFormatException e) {
+            return enterFloat(info);
+        }
+    }
+
+    public static double enterDouble(String info) {
+        try {
+            return Double.parseDouble(enterString(info));
+        } catch (NumberFormatException e) {
+            return enterDouble(info);
+        }
+    }
+
     public static void enterToContinue() {
         enterString(Strings.enterContinue);
     }
