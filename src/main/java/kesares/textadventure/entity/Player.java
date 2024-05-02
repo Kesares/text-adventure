@@ -18,14 +18,14 @@ public class Player extends Entity {
         OutputManager.clearConsole();
         OutputManager.printTitle(Strings.playerStatsTitle + this.name);
         System.out.println(this);
-        OutputManager.printBoldPartingLine();
+        OutputManager.printPartingLine();
     }
 
     public void printInventory() {
         OutputManager.clearConsole();
         OutputManager.printTitle(Strings.inventoryTitle + this.name);
         this.inventory.printInventory();
-        OutputManager.printBoldPartingLine();
+        OutputManager.printPartingLine();
     }
 
     @Override

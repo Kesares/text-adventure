@@ -48,10 +48,10 @@ public class Battle {
     }
 
     private void printAttackInfo(int takeDamage, int makeDamage) {
-        OutputManager.printThinPartingLine();
+        OutputManager.printPartingLine();
         System.out.printf(Strings.makeDamage, this.invader.getName(), makeDamage);
         System.out.printf(Strings.takeDamage, this.invader.getName(), takeDamage);
-        OutputManager.printThinPartingLine();
+        OutputManager.printPartingLine();
         InputManager.enterToContinue();
     }
 
@@ -77,6 +77,6 @@ public class Battle {
         this.player.addGold(this.invader.getGold());
         System.out.printf(Strings.gotXP, this.invader.getExp());
         System.out.printf(Strings.gotGold, this.invader.getGold());
-        OutputManager.printBoldPartingLine();
+        OutputManager.printPartingLine();
     }
 }

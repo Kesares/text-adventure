@@ -13,39 +13,39 @@ public final class MenuPrinter {
     public static byte printMainMenu() {
         OutputManager.printTitle("Text Adventure");
         System.out.println(Strings.mainMenu);
-        OutputManager.printBoldPartingLine();
+        OutputManager.printPartingLine();
         return InputManager.enterByte("> ");
     }
 
     public static byte printSettingsMenu() {
         OutputManager.printTitle(Strings.settingsMenuTitle);
         System.out.println(Strings.settingsMenu);
-        OutputManager.printBoldPartingLine();
+        OutputManager.printPartingLine();
         return InputManager.enterByte("> ");
     }
 
     public static byte printLanguageSelectionMenu() {
         OutputManager.printTitle(Strings.langSelectionMenuTitle);
         System.out.println(Strings.langSelectionMenu);
-        OutputManager.printBoldPartingLine();
+        OutputManager.printPartingLine();
         return InputManager.enterByte("> ");
     }
 
     public static byte printStoryMenu() {
         OutputManager.printTitle("Story");
         System.out.println(Strings.storyMenu);
-        OutputManager.printBoldPartingLine();
+        OutputManager.printPartingLine();
         return InputManager.enterByte("> ");
     }
 
     public static byte printBattleMenu(Player player, Invader invader) {
         OutputManager.printTitle("Battle");
         System.out.printf("%s (%d)\r\nHP: %d/%d\r\n", player.getName(), player.getLevel(), player.getHP(), player.getMaxHP());
-        OutputManager.printThinPartingLine();
+        OutputManager.printPartingLine(OutputManager.MINUS_SIGN);
         System.out.printf("%s (%d)\r\nHP: %d/%d\r\n", invader.getName(), invader.getLevel(), invader.getHP(), invader.getMaxHP());
-        OutputManager.printThinPartingLine();
+        OutputManager.printPartingLine(OutputManager.MINUS_SIGN);
         System.out.println(Strings.battleMenu);
-        OutputManager.printBoldPartingLine();
+        OutputManager.printPartingLine();
         return InputManager.enterByte("> ");
     }
 }
