@@ -1,5 +1,6 @@
 package kesares.textadventure.io;
 
+import kesares.textadventure.util.AnsiColor;
 import kesares.textadventure.util.lang.LanguageSelector;
 
 import java.io.BufferedReader;
@@ -27,7 +28,7 @@ public final class InputManager {
         try {
             return Byte.parseByte(enterString(info));
         } catch (NumberFormatException e) {
-            System.out.println(LanguageSelector.strings.invalidInput);
+            OutputManager.printColorText(LanguageSelector.strings.invalidInput, AnsiColor.YELLOW);
             return enterByte(info);
         }
     }
@@ -36,6 +37,7 @@ public final class InputManager {
         try {
             return Short.parseShort(enterString(info));
         } catch (NumberFormatException e) {
+            OutputManager.printColorText(LanguageSelector.strings.invalidInput, AnsiColor.YELLOW);
             return enterShort(info);
         }
     }
@@ -44,6 +46,7 @@ public final class InputManager {
         try {
             return Integer.parseInt(enterString(info));
         } catch (NumberFormatException e) {
+            OutputManager.printColorText(LanguageSelector.strings.invalidInput, AnsiColor.YELLOW);
             return enterInt(info);
         }
     }
@@ -52,6 +55,7 @@ public final class InputManager {
         try {
             return Long.parseLong(enterString(info));
         } catch (NumberFormatException e) {
+            OutputManager.printColorText(LanguageSelector.strings.invalidInput, AnsiColor.YELLOW);
             return enterLong(info);
         }
     }
@@ -60,6 +64,7 @@ public final class InputManager {
         try {
             return Float.parseFloat(enterString(info));
         } catch (NumberFormatException e) {
+            OutputManager.printColorText(LanguageSelector.strings.invalidInput, AnsiColor.YELLOW);
             return enterFloat(info);
         }
     }
@@ -68,11 +73,30 @@ public final class InputManager {
         try {
             return Double.parseDouble(enterString(info));
         } catch (NumberFormatException e) {
+            OutputManager.printColorText(LanguageSelector.strings.invalidInput, AnsiColor.YELLOW);
             return enterDouble(info);
+        }
+    }
+
+    public static boolean enterBoolean(String info) {
+        try {
+            String input = enterString(info);
+            return Byte.parseByte(input) == 1;
+        } catch (NumberFormatException e) {
+            OutputManager.printColorText(LanguageSelector.strings.invalidInput, AnsiColor.YELLOW);
+            return enterBoolean(info);
         }
     }
 
     public static void enterToContinue() {
         enterString(LanguageSelector.strings.enterToContinue);
+    }
+
+    public static void close() {
+        try {
+            READER.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
