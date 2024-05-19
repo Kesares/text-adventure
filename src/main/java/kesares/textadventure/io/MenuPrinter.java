@@ -31,11 +31,18 @@ public final class MenuPrinter {
         return InputManager.enterByte("> ");
     }
 
-    public static byte printStoryMenu() {
+    public static byte printWorldMenu() {
         OutputManager.printTitle("Story");
         System.out.println(LanguageSelector.strings.worldMenu);
         OutputManager.printBoldPartingLine();
         return InputManager.enterByte("> ");
+    }
+
+    public static boolean printYesNoMenu(String text) {
+        OutputManager.printTitle(text);
+        System.out.println(LanguageSelector.strings.yesNo);
+        OutputManager.printBoldPartingLine();
+        return InputManager.enterBoolean("> ");
     }
 
     public static byte printBattleMenu(Player player, Invader invader) {

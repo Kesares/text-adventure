@@ -20,7 +20,7 @@ public class World {
         while(true) {
             InputManager.enterToContinue();
             OutputManager.clearConsole();
-            option = MenuPrinter.printStoryMenu();
+            option = MenuPrinter.printWorldMenu();
             switch (option) {
                 case 1 -> this.continueJourney();
                 case 2 -> this.player.printStats();
