@@ -1,7 +1,7 @@
 package kesares.textadventure.io;
 
 import kesares.textadventure.util.AnsiColor;
-import kesares.textadventure.util.lang.Strings;
+import kesares.textadventure.util.lang.LanguageSelector;
 
 public final class OutputManager {
 
@@ -46,7 +46,7 @@ public final class OutputManager {
         printPartingLine(c, CLEAR_LENGTH);
     }
 
-    public static void printPartingLine() {
+    public static void printBoldPartingLine() {
         printPartingLine(EQUAL_SIGN);
     }
 
@@ -57,7 +57,7 @@ public final class OutputManager {
     }
 
     public static void printOptionDoesntExist(byte option) {
-        System.out.printf(Strings.optionDoesntExist, option);
+        System.out.printf(LanguageSelector.strings.getFormattedOptionDoesntExist(option));
     }
 
     public static int calculateCenterWidth(String text, int length) {

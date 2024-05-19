@@ -3,7 +3,6 @@ package kesares.textadventure.entity;
 import kesares.textadventure.io.InputManager;
 import kesares.textadventure.io.MenuPrinter;
 import kesares.textadventure.io.OutputManager;
-import kesares.textadventure.util.lang.Strings;
 
 public class Battle {
 
@@ -16,8 +15,8 @@ public class Battle {
     }
 
     public void begin() {
-        String title = String.format(Strings.beingAttacked, this.invader.getName(), this.invader.getLevel());
-        OutputManager.printTitle(title);
+//        String title = String.format(Strings.beingAttacked, this.invader.getName(), this.invader.getLevel());
+//        OutputManager.printTitle(title);
         InputManager.enterToContinue();
         this.battle();
     }
@@ -30,7 +29,7 @@ public class Battle {
             switch (option) {
                 case 1 -> this.attack();
                 case 2 -> {
-                    System.out.println(Strings.runAway);
+//                    System.out.println(Strings.runAway);
                     return;
                 }
                 default -> OutputManager.printOptionDoesntExist(option);
@@ -48,10 +47,10 @@ public class Battle {
     }
 
     private void printAttackInfo(int takeDamage, int makeDamage) {
-        OutputManager.printPartingLine();
-        System.out.printf(Strings.makeDamage, this.invader.getName(), makeDamage);
-        System.out.printf(Strings.takeDamage, this.invader.getName(), takeDamage);
-        OutputManager.printPartingLine();
+        OutputManager.printBoldPartingLine();
+//        System.out.printf(Strings.makeDamage, this.invader.getName(), makeDamage);
+//        System.out.printf(Strings.takeDamage, this.invader.getName(), takeDamage);
+        OutputManager.printBoldPartingLine();
         InputManager.enterToContinue();
     }
 
@@ -64,7 +63,7 @@ public class Battle {
         if (this.player.isAlive()) {
             this.playerWins();
         } else {
-            OutputManager.printTitle(Strings.lostBattle);
+//            OutputManager.printTitle(Strings.lostBattle);
             // invaderWins(), lostXp(), lostGold()
             // or end of story
         }
@@ -72,11 +71,11 @@ public class Battle {
     }
 
     private void playerWins() {
-        OutputManager.printTitle(String.format(Strings.defeatedEntity, this.invader.getName(), this.invader.getLevel()));
+//        OutputManager.printTitle(String.format(Strings.defeatedEntity, this.invader.getName(), this.invader.getLevel()));
         this.player.addExp(this.invader.getExp());
         this.player.addGold(this.invader.getGold());
-        System.out.printf(Strings.gotXP, this.invader.getExp());
-        System.out.printf(Strings.gotGold, this.invader.getGold());
-        OutputManager.printPartingLine();
+//        System.out.printf(Strings.gotXP, this.invader.getExp());
+//        System.out.printf(Strings.gotGold, this.invader.getGold());
+        OutputManager.printBoldPartingLine();
     }
 }

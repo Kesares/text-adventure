@@ -1,18 +1,16 @@
 package kesares.textadventure.core;
 
-import kesares.textadventure.entity.Battle;
-import kesares.textadventure.entity.Invader;
 import kesares.textadventure.entity.Player;
 import kesares.textadventure.io.InputManager;
 import kesares.textadventure.io.MenuPrinter;
 import kesares.textadventure.io.OutputManager;
-import kesares.textadventure.util.lang.Strings;
+import kesares.textadventure.util.lang.LanguageSelector;
 
-public class Story {
+public class World {
 
     private final Player player;
 
-    public Story() {
+    public World() {
         String name = this.enterPlayerName();
         this.player = new Player(name);
     }
@@ -38,17 +36,17 @@ public class Story {
         double eventRate = Math.random();
 
         if (eventRate < 0.7) {
-            Battle battle = new Battle(this.player, this.getRandomInvader());
-            battle.begin();
+//            Battle battle = new Battle(this.player, this.getRandomInvader());
+//            battle.begin();
         } else if (eventRate < 0.9) {
-            OutputManager.printTitle(Strings.peacefulJourney);
+//            OutputManager.printTitle(Strings.peacefulJourney);
         }
     }
 
-    private Invader getRandomInvader() {
-        int index = (int) (Math.random() * Strings.invaderNames.length);
-        return new Invader(Strings.invaderNames[index], this.player.getLevel());
-    }
+//    private Invader getRandomInvader() {
+////        int index = (int) (Math.random() * Strings.invaderNames.length);
+//        return new Invader(Strings.invaderNames[index], this.player.getLevel());
+//    }
 
     private String enterPlayerName() {
         boolean isPlayerNameSet = false;
@@ -56,11 +54,10 @@ public class Story {
 
         do {
             OutputManager.clearConsole();
-            OutputManager.printTitle(Strings.whatIsYourPlayerName);
-            name = InputManager.enterString(Strings.playerName);
+            name = InputManager.enterString(LanguageSelector.strings.playerName);
             OutputManager.clearConsole();
-            OutputManager.printTitle(String.format(Strings.playerNameCorrect, name));
-            byte option = InputManager.enterByte(Strings.yesNo);
+//            OutputManager.printTitle(String.format(Strings.playerNameCorrect, name));
+            byte option = InputManager.enterByte(LanguageSelector.strings.yesNo);
             if (option == 1) isPlayerNameSet = true;
         } while(!isPlayerNameSet);
         return name;

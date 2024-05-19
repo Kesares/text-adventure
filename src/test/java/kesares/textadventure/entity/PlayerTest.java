@@ -1,15 +1,14 @@
 package kesares.textadventure.entity;
 
-import kesares.textadventure.util.lang.Strings;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class PlayerTest {
 
     @Test
     void addExp() {
-        Strings.levelUp = "You are now level %d.";
+//        Strings.levelUp = "You are now level %d.";
         Player player = new Player("Player");
         assertEquals(0, player.getExp());
         player.addExp(14);

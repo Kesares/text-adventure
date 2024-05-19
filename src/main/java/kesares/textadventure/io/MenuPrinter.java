@@ -2,7 +2,7 @@ package kesares.textadventure.io;
 
 import kesares.textadventure.entity.Invader;
 import kesares.textadventure.entity.Player;
-import kesares.textadventure.util.lang.Strings;
+import kesares.textadventure.util.lang.LanguageSelector;
 
 public final class MenuPrinter {
 
@@ -12,29 +12,29 @@ public final class MenuPrinter {
 
     public static byte printMainMenu() {
         OutputManager.printTitle("Text Adventure");
-        System.out.println(Strings.mainMenu);
-        OutputManager.printPartingLine();
+        System.out.println(LanguageSelector.strings.mainMenu);
+        OutputManager.printBoldPartingLine();
         return InputManager.enterByte("> ");
     }
 
     public static byte printSettingsMenu() {
-        OutputManager.printTitle(Strings.settingsMenuTitle);
-        System.out.println(Strings.settingsMenu);
-        OutputManager.printPartingLine();
+        OutputManager.printTitle(LanguageSelector.strings.settingsMenuTitle);
+        System.out.println(LanguageSelector.strings.settingsMenu);
+        OutputManager.printBoldPartingLine();
         return InputManager.enterByte("> ");
     }
 
     public static byte printLanguageSelectionMenu() {
-        OutputManager.printTitle(Strings.langSelectionMenuTitle);
-        System.out.println(Strings.langSelectionMenu);
-        OutputManager.printPartingLine();
+        OutputManager.printTitle(LanguageSelector.strings.languageSelectionMenuTitle);
+        System.out.println(LanguageSelector.strings.languageSelectionMenu);
+        OutputManager.printBoldPartingLine();
         return InputManager.enterByte("> ");
     }
 
     public static byte printStoryMenu() {
         OutputManager.printTitle("Story");
-        System.out.println(Strings.storyMenu);
-        OutputManager.printPartingLine();
+        System.out.println(LanguageSelector.strings.worldMenu);
+        OutputManager.printBoldPartingLine();
         return InputManager.enterByte("> ");
     }
 
@@ -44,8 +44,8 @@ public final class MenuPrinter {
         OutputManager.printPartingLine(OutputManager.MINUS_SIGN);
         System.out.printf("%s (%d)\r\nHP: %d/%d\r\n", invader.getName(), invader.getLevel(), invader.getHP(), invader.getMaxHP());
         OutputManager.printPartingLine(OutputManager.MINUS_SIGN);
-        System.out.println(Strings.battleMenu);
-        OutputManager.printPartingLine();
+//        System.out.println(Strings.battleMenu);
+        OutputManager.printBoldPartingLine();
         return InputManager.enterByte("> ");
     }
 }

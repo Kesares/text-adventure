@@ -32,8 +32,8 @@ public final class Settings {
         OutputManager.clearConsole();
         byte option = MenuPrinter.printLanguageSelectionMenu();
         switch (option) {
-            case 1 -> LANGUAGE_SELECTOR.changeLanguageTo(Language.ENGLISH);
-            case 2 -> LANGUAGE_SELECTOR.changeLanguageTo(Language.GERMAN);
+            case 1 -> LANGUAGE_SELECTOR.changeLanguageTo(Language.EN_US);
+            case 2 -> LANGUAGE_SELECTOR.changeLanguageTo(Language.DE_DE);
             case 3 -> {}
             default -> {
                 OutputManager.printOptionDoesntExist(option);

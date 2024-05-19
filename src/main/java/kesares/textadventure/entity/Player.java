@@ -1,7 +1,6 @@
 package kesares.textadventure.entity;
 
 import kesares.textadventure.io.OutputManager;
-import kesares.textadventure.util.lang.Strings;
 
 public class Player extends Entity {
 
@@ -16,16 +15,16 @@ public class Player extends Entity {
 
     public void printStats() {
         OutputManager.clearConsole();
-        OutputManager.printTitle(Strings.playerStatsTitle + this.name);
+//        OutputManager.printTitle(Strings.playerStatsTitle + this.name);
         System.out.println(this);
-        OutputManager.printPartingLine();
+        OutputManager.printBoldPartingLine();
     }
 
     public void printInventory() {
         OutputManager.clearConsole();
-        OutputManager.printTitle(Strings.inventoryTitle + this.name);
+//        OutputManager.printTitle(Strings.inventoryTitle + this.name);
         this.inventory.printInventory();
-        OutputManager.printPartingLine();
+        OutputManager.printBoldPartingLine();
     }
 
     @Override
@@ -39,7 +38,7 @@ public class Player extends Entity {
             this.level++;
             this.maxHP++;
             this.HP++;
-            OutputManager.printTitle(String.format(Strings.levelUp, this.level));
+//            OutputManager.printTitle(String.format(Strings.levelUp, this.level));
         }
     }
 

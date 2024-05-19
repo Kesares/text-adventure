@@ -1,6 +1,6 @@
 package kesares.textadventure.io;
 
-import kesares.textadventure.util.lang.Strings;
+import kesares.textadventure.util.lang.LanguageSelector;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -27,7 +27,7 @@ public final class InputManager {
         try {
             return Byte.parseByte(enterString(info));
         } catch (NumberFormatException e) {
-            System.out.println(Strings.invalidInput);
+            System.out.println(LanguageSelector.strings.invalidInput);
             return enterByte(info);
         }
     }
@@ -73,6 +73,6 @@ public final class InputManager {
     }
 
     public static void enterToContinue() {
-        enterString(Strings.enterContinue);
+        enterString(LanguageSelector.strings.enterToContinue);
     }
 }

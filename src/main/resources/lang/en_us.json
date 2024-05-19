@@ -1,0 +1,21 @@
+{
+  "createNewPlayer": "Create new player",
+  "createNewWorld": "Create new world",
+  "enterToContinue": "Press 'Enter' to continue...",
+  "enterWorldName": "World name: ",
+  "invalidInput": "Hint: Invalid input. Enter an integer!",
+  "invalidPlayerName": "Hint: Invalid player name!",
+  "isGameSaving": "Save world?",
+  "languageSelectionMenu": "1: English\n2: German\n\n3: Back",
+  "languageSelectionMenuTitle": "Language Selection",
+  "mainMenu": "1: Create new world\n2: Load world\n3: Settings\n4: Exit",
+  "optionDoesntExist": "Hint: The option '%s' doesn't exit.",
+  "playerName": "Player name: ",
+  "loadingWorldsMenuTitle": "Gespeicherte Welten",
+  "settingsMenu": "1: Language selection\n\n2: Back",
+  "settingsMenuTitle": "Settings",
+  "worlds": "Worlds",
+  "worldMenu": "1: Continue story...\n2: Character info\n3: Inventory\n4: Save world\n\n5: Settings\n6: Main Menu",
+  "worldSaved": "Hnt: Saved story!",
+  "yesNo": "1: Yes\n2: No"
+}

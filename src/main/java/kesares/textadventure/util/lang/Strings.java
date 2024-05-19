@@ -2,49 +2,46 @@ package kesares.textadventure.util.lang;
 
 public final class Strings {
 
-    public static String enterContinue;
-    public static String invalidInput;
-    public static String optionDoesntExist;
+    public static final String COMING_SOON = "Coming soon...";
 
-    // MenuPrinter-Class
-    public static String mainMenu;
-    public static String settingsMenu;
-    public static String settingsMenuTitle;
-    public static String langSelectionMenu;
-    public static String langSelectionMenuTitle;
-    public static String battleMenu;
+    public String createNewPlayer;
+    public String createNewWorld;
+    public String enterToContinue;
+    public String enterWorldName;
+    public String invalidInput;
+    public String invalidPlayerName;
+    public String isGameSaving;
+    public String languageSelectionMenu;
+    public String languageSelectionMenuTitle;
+    public String loadingWorldsMenuTitle;
+    public String mainMenu;
+    public String optionDoesntExist;
+    public String playerName;
+    public String settingsMenu;
+    public String settingsMenuTitle;
+    public String worlds;
+    public String worldMenu;
+    public String worldSaved;
+    public String yesNo;
 
-    // Player-Class
-    public static String inventoryTitle;
-    public static String levelUp;
-    public static String playerStatsTitle;
+//    public String battleMenu;
+//    public String inventoryTitle;
+//    public String levelUp;
+//    public String playerStatsTitle;
+//    public String[] invaderNames;
+//    public String peacefulJourney;
+//    public String whatIsYourPlayerName;
+//    public String playerNameCorrect;
+//    public String beingAttacked;
+//    public String runAway;
+//    public String makeDamage;
+//    public String takeDamage;
+//    public String lostBattle;
+//    public String defeatedEntity;
+//    public String gotXP;
+//    public String gotGold;
 
-    // Story-Class
-    public static String[] invaderNames;
-    public static String peacefulJourney;
-    public static String storyMenu;
-
-    // Game-Class
-    public static String whatIsYourPlayerName;
-    public static String playerName;
-    public static String playerNameCorrect;
-    public static String yesNo;
-
-    // Battle-Class
-    public static String beingAttacked;
-    public static String runAway;
-    public static String makeDamage;
-    public static String takeDamage;
-    public static String lostBattle;
-    public static String defeatedEntity;
-    public static String gotXP;
-    public static String gotGold;
-
-    private Strings() {
-        throw new UnsupportedOperationException();
-    }
-
-    public static String[] splitNames(String invaderNames) {
-        return invaderNames.split(", ");
+    public String getFormattedOptionDoesntExist(int option) {
+        return String.format(this.optionDoesntExist, option);
     }
 }

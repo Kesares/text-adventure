@@ -16,7 +16,7 @@ public class Game {
     }
 
     private void initResources() {
-        LanguageSelector.getInstance().changeLanguageTo(Language.GERMAN);
+        LanguageSelector.getInstance().changeLanguageTo(Language.DE_DE);
     }
 
     public void update() {
@@ -24,7 +24,7 @@ public class Game {
         OutputManager.clearConsole();
         byte option = MenuPrinter.printMainMenu();
         switch (option) {
-            case 1 -> new Story().run();
+            case 1 -> new World().run();
             case 2 -> Settings.changeSettings();
             case 3 -> this.exit();
             default -> OutputManager.printOptionDoesntExist(option);
