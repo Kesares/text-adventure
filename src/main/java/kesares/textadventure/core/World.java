@@ -4,43 +4,58 @@ import kesares.textadventure.entity.Player;
 import kesares.textadventure.io.InputManager;
 import kesares.textadventure.io.MenuPrinter;
 import kesares.textadventure.io.OutputManager;
+import kesares.textadventure.util.AnsiColor;
+import kesares.textadventure.util.Refactoring;
 import kesares.textadventure.util.lang.LanguageSelector;
 
 public class World {
 
-    private final Player player;
+    private String name;
+    private Player player;
 
-    public World() {
-        String name = this.enterPlayerName();
-        this.player = new Player(name);
+    public World(String name, Player player) {
+        this.name = name;
+        this.player = player;
     }
 
-    public void run() {
-        byte option;
+    public World(String name) {
+        this(name, createPlayer());
+    }
+
+    public World() {}
+
+    public void load() {
         while(true) {
             InputManager.enterToContinue();
             OutputManager.clearConsole();
-            option = MenuPrinter.printWorldMenu();
+            final byte option = MenuPrinter.printWorldMenu(this.name);
             switch (option) {
                 case 1 -> this.continueJourney();
                 case 2 -> this.player.printStats();
                 case 3 -> this.player.printInventory();
-                case 4 -> { return; }
+                case 4 -> this.askGameSaving();
+                case 5 -> Settings.changeSettings();
+                case 6 -> { return; }
                 default -> OutputManager.printOptionDoesntExist(option);
             }
         }
     }
 
     private void continueJourney() {
-        OutputManager.clearConsole();
-        double eventRate = Math.random();
+        OutputManager.printComingSoon("Story fortsetzen... - ");
+//        OutputManager.clearConsole();
+//        double eventRate = Math.random();
+//
+//        if (eventRate < 0.7) {
+////            Battle battle = new Battle(this.player, this.getRandomInvader());
+////            battle.begin();
+//        } else if (eventRate < 0.9) {
+////            OutputManager.printTitle(Strings.peacefulJourney);
+//        }
+    }
 
-        if (eventRate < 0.7) {
-//            Battle battle = new Battle(this.player, this.getRandomInvader());
-//            battle.begin();
-        } else if (eventRate < 0.9) {
-//            OutputManager.printTitle(Strings.peacefulJourney);
-        }
+    private void askGameSaving() {
+        OutputManager.printComingSoon("Spiel speichern? - ");
     }
 
 //    private Invader getRandomInvader() {
@@ -48,18 +63,36 @@ public class World {
 //        return new Invader(Strings.invaderNames[index], this.player.getLevel());
 //    }
 
-    private String enterPlayerName() {
-        boolean isPlayerNameSet = false;
-        String name;
+    @Refactoring
+    private static Player createPlayer() {
+        OutputManager.clearConsole();
+        OutputManager.printTitle(LanguageSelector.strings.createNewPlayer);
+        String name = InputManager.enterString(LanguageSelector.strings.playerName);
+        OutputManager.printBoldPartingLine();
+        if (!isValidPlayerName(name)) {
+            OutputManager.printColorText(LanguageSelector.strings.invalidPlayerName, AnsiColor.YELLOW);
+            return createPlayer();
+        }
+        return new Player(name);
+    }
 
-        do {
-            OutputManager.clearConsole();
-            name = InputManager.enterString(LanguageSelector.strings.playerName);
-            OutputManager.clearConsole();
-//            OutputManager.printTitle(String.format(Strings.playerNameCorrect, name));
-            byte option = InputManager.enterByte(LanguageSelector.strings.yesNo);
-            if (option == 1) isPlayerNameSet = true;
-        } while(!isPlayerNameSet);
+    private static boolean isValidPlayerName(String name) {
+        return !name.isEmpty() || !name.isBlank();
+    }
+
+    public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
     }
 }

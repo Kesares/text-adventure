@@ -31,8 +31,8 @@ public final class MenuPrinter {
         return InputManager.enterByte("> ");
     }
 
-    public static byte printWorldMenu() {
-        OutputManager.printTitle("Story");
+    public static byte printWorldMenu(String name) {
+        OutputManager.printTitle(name);
         System.out.println(LanguageSelector.strings.worldMenu);
         OutputManager.printBoldPartingLine();
         return InputManager.enterByte("> ");

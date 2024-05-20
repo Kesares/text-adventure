@@ -2,6 +2,7 @@ package kesares.textadventure.io;
 
 import kesares.textadventure.util.AnsiColor;
 import kesares.textadventure.util.lang.LanguageSelector;
+import kesares.textadventure.util.lang.Strings;
 
 public final class OutputManager {
 
@@ -35,6 +36,10 @@ public final class OutputManager {
         System.out.printf("%s%s%s%n", color.getValue(), text, AnsiColor.RESET.getValue());
     }
 
+    public static void printColorText(String text) {
+        printColorText(text, AnsiColor.YELLOW);
+    }
+
     public static void printPartingLine(char c, int length) {
         for (int i = 0; i < length; i++) {
             System.out.print(c);
@@ -50,6 +55,11 @@ public final class OutputManager {
         printPartingLine(EQUAL_SIGN);
     }
 
+    public static void printComingSoon(String text) {
+        printPartingLine(MINUS_SIGN);
+        printColorText(text + Strings.COMING_SOON, AnsiColor.RED);
+    }
+
     public static void clearConsole() {
         for (byte i = 0; i < 50; ++i) {
             System.out.println();
@@ -57,7 +67,7 @@ public final class OutputManager {
     }
 
     public static void printOptionDoesntExist(byte option) {
-        System.out.printf(LanguageSelector.strings.getFormattedOptionDoesntExist(option));
+        OutputManager.printColorText(LanguageSelector.strings.getFormattedOptionDoesntExist(option));
     }
 
     public static int calculateCenterWidth(String text, int length) {

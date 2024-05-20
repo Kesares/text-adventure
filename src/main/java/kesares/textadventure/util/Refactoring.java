@@ -5,7 +5,7 @@ import java.lang.annotation.Target;
 import static java.lang.annotation.ElementType.*;
 
 /**
- * Indicates that the construct will be adjusted at a later date
+ * Indicates that the construct will be refactored at a later date
  * and methods might change parameters or return types.
  */
 @Target({TYPE, FIELD, METHOD, PARAMETER, CONSTRUCTOR, LOCAL_VARIABLE})
