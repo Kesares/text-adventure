@@ -6,7 +6,8 @@ import kesares.textadventure.util.lang.Strings;
 
 public final class OutputManager {
 
-    public static final byte CLEAR_LENGTH = 50;
+    private static final byte CLEAR_LENGTH = 50;
+    public static final byte LINE_LENGTH = CLEAR_LENGTH;
     public static final char EQUAL_SIGN = '=';
     public static final char MINUS_SIGN = '-';
 
@@ -29,7 +30,7 @@ public final class OutputManager {
     }
 
     public static void printTitle(String title) {
-        printTitle(title, CLEAR_LENGTH);
+        printTitle(title, LINE_LENGTH);
     }
 
     public static void printColorText(String text, AnsiColor color) {
@@ -40,6 +41,11 @@ public final class OutputManager {
         printColorText(text, AnsiColor.YELLOW);
     }
 
+    public static void printCenteredColorText(String text, AnsiColor color, int length) {
+        int width = calculateCenterWidth(text, length);
+        System.out.printf("%s%" + width + "s%s%n", color.getValue(), text, AnsiColor.RESET.getValue());
+    }
+
     public static void printPartingLine(char c, int length) {
         for (int i = 0; i < length; i++) {
             System.out.print(c);
@@ -48,7 +54,7 @@ public final class OutputManager {
     }
 
     public static void printPartingLine(char c) {
-        printPartingLine(c, CLEAR_LENGTH);
+        printPartingLine(c, LINE_LENGTH);
     }
 
     public static void printBoldPartingLine() {
@@ -61,7 +67,7 @@ public final class OutputManager {
     }
 
     public static void clearConsole() {
-        for (byte i = 0; i < 50; ++i) {
+        for (byte i = 0; i < CLEAR_LENGTH; ++i) {
             System.out.println();
         }
     }

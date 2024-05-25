@@ -15,7 +15,7 @@
   "settingsMenu": "1: Sprachauswahl\n\n2: Zurück",
   "settingsMenuTitle": "Einstellungen",
   "worlds": "Welten",
-  "worldMenu": "1: Story fortsetzen...\n2: Charakterinfo\n3: Inventar\n4: Welt speichern\n5: Einstellungen\n6: Hauptmenü",
+  "worldMenu": "1: Story fortsetzen...\n2: Charakterinfo\n3: Inventar\n4: Einstellungen\n5: Hauptmenü",
   "worldSaved": "Hinweis: Story gespeichert!",
   "yesNo": "1: Ja\n2: Nein"
 }

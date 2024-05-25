@@ -15,7 +15,7 @@
   "settingsMenu": "1: Language selection\n\n2: Back",
   "settingsMenuTitle": "Settings",
   "worlds": "Worlds",
-  "worldMenu": "1: Continue story...\n2: Character info\n3: Inventory\n4: Save world\n\n5: Settings\n6: Main Menu",
+  "worldMenu": "1: Continue story...\n2: Character info\n3: Inventory\n4: Settings\n5: Main Menu",
   "worldSaved": "Hnt: Saved story!",
   "yesNo": "1: Yes\n2: No"
 }

@@ -3,19 +3,26 @@ package kesares.textadventure.core;
 import kesares.textadventure.io.InputManager;
 import kesares.textadventure.io.MenuPrinter;
 import kesares.textadventure.io.OutputManager;
+import kesares.textadventure.io.WorldIO;
 import kesares.textadventure.util.AnsiColor;
 import kesares.textadventure.util.lang.LanguageSelector;
 import kesares.textadventure.util.lang.Strings;
 
+import java.util.List;
+
 public class Game {
 
+    private final List<World> worlds;
+    private World world;
     private boolean isRunning;
 
     public Game() {
+        this.worlds = WorldIO.loadWorlds();
         this.isRunning = true;
     }
 
     public void update() {
+        OutputManager.printBoldPartingLine();
         InputManager.enterToContinue();
         OutputManager.clearConsole();
         byte option = MenuPrinter.printMainMenu();
@@ -32,8 +39,9 @@ public class Game {
         OutputManager.clearConsole();
         OutputManager.printTitle(LanguageSelector.strings.createNewWorld);
         String worldName = InputManager.enterString(LanguageSelector.strings.enterWorldName);
-        World world = new World(worldName);
-        world.load();
+        this.world = new World(worldName);
+        this.worlds.add(this.world);
+        this.world.load();
     }
 
     private void playLoadedWorld() {
@@ -43,6 +51,7 @@ public class Game {
     private void exit() {
         OutputManager.clearConsole();
         OutputManager.printBoldPartingLine();
+        WorldIO.saveWorlds(this.worlds);
         InputManager.close();
         this.isRunning = false;
     }
