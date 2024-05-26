@@ -30,8 +30,13 @@ public class ConsoleTable {
         this.printHeaders();
         OutputManager.printPartingLine(OutputManager.MINUS_SIGN, this.tableWidth);
         this.printData();
-        System.out.printf("%n| %d: Zurück |%n", this.rows.size() + 1);
+        OutputManager.printPartingLine(OutputManager.MINUS_SIGN, this.tableWidth);
+        System.out.printf("| %d: Zurück |%n", this.rows.size() + 1);
         OutputManager.printPartingLine(OutputManager.EQUAL_SIGN, this.tableWidth);
+    }
+
+    public int getSize() {
+        return this.rows.size();
     }
 
     private void printData() {
@@ -52,7 +57,7 @@ public class ConsoleTable {
         System.out.println('|');
     }
 
-    private int[] getHeaderWidths(String[] headers) {
+    public int[] getHeaderWidths(String[] headers) {
         int[] widths = new int[headers.length];
         for (int i = 0; i < headers.length; i++) {
             widths[i] = headers[i].length();
