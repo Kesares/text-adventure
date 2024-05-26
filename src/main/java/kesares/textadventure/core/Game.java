@@ -1,23 +1,20 @@
 package kesares.textadventure.core;
 
-import kesares.textadventure.io.InputManager;
-import kesares.textadventure.io.MenuPrinter;
-import kesares.textadventure.io.OutputManager;
-import kesares.textadventure.io.WorldIO;
-import kesares.textadventure.util.AnsiColor;
+import kesares.textadventure.io.*;
 import kesares.textadventure.util.lang.LanguageSelector;
-import kesares.textadventure.util.lang.Strings;
 
 import java.util.List;
 
 public class Game {
 
+    private final ConsoleTable worldsTable;
     private final List<World> worlds;
     private World world;
     private boolean isRunning;
 
     public Game() {
-        this.worlds = WorldIO.loadWorlds();
+        this.worldsTable = new ConsoleTable("Nr.", LanguageSelector.strings.worlds);
+        this.worlds = WorldIO.loadWorlds(this.worldsTable);
         this.isRunning = true;
     }
 
@@ -28,7 +25,7 @@ public class Game {
         byte option = MenuPrinter.printMainMenu();
         switch (option) {
             case 1 -> this.playNewWorld();
-            case 2 -> this.playLoadedWorld();
+            case 2 -> this.selectWorld();
             case 3 -> Settings.changeSettings();
             case 4 -> this.exit();
             default -> OutputManager.printOptionDoesntExist(option);
@@ -41,11 +38,23 @@ public class Game {
         String worldName = InputManager.enterString(LanguageSelector.strings.enterWorldName);
         this.world = new World(worldName);
         this.worlds.add(this.world);
+        this.worldsTable.addRow(this.worlds.size() + ".", this.world.getName());
         this.world.load();
     }
 
-    private void playLoadedWorld() {
-        OutputManager.printColorText(Strings.COMING_SOON, AnsiColor.RED);
+    private void selectWorld() {
+        OutputManager.clearConsole();
+        this.worldsTable.print();
+        int index = InputManager.enterByte("> ") - 1;
+        if (index == this.worlds.size()) return;
+        this.playSelectedWorld(index);
+    }
+
+    private void playSelectedWorld(int index) {
+        OutputManager.clearConsole();
+        OutputManager.printBoldPartingLine();
+        this.world = this.worlds.get(index);
+        this.world.load();
     }
 
     private void exit() {
@@ -53,6 +62,7 @@ public class Game {
         OutputManager.printBoldPartingLine();
         WorldIO.saveWorlds(this.worlds);
         InputManager.close();
+        OutputManager.printBoldPartingLine();
         this.isRunning = false;
     }
 
