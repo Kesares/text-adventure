@@ -11,11 +11,27 @@ public class ConsoleTable {
     private final List<String[]> rows;
     private final int[] widthsCache;
     private int tableWidth;
+    private final StringBuilder headerBuilder;
+    private final StringBuilder dataBuilder;
 
     public ConsoleTable(String... headers) {
         this.headers = headers;
         this.rows = new ArrayList<>();
         this.widthsCache = this.getHeaderWidths(headers);
+        this.headerBuilder = new StringBuilder();
+        this.dataBuilder = new StringBuilder();
+    }
+
+    public int getSize() {
+        return this.rows.size();
+    }
+
+    public int[] getHeaderWidths(String[] headers) {
+        int[] widths = new int[headers.length];
+        for (int i = 0; i < headers.length; i++) {
+            widths[i] = headers[i].length();
+        }
+        return widths;
     }
 
     public void addRow(String... row) {
@@ -33,36 +49,32 @@ public class ConsoleTable {
         OutputManager.printPartingLine(OutputManager.MINUS_SIGN, this.tableWidth);
         System.out.printf("| %d: Zurück |%n", this.rows.size() + 1);
         OutputManager.printPartingLine(OutputManager.EQUAL_SIGN, this.tableWidth);
+        this.resetBuilder();
     }
 
-    public int getSize() {
-        return this.rows.size();
+    private void printHeaders() {
+        for (int i = 0; i < this.headers.length; i++) {
+            final int width = this.widthsCache[i];
+            this.headerBuilder.append(String.format("| %-" + width + "s ", this.headers[i]));
+        }
+        this.headerBuilder.append('|');
+        System.out.println(this.headerBuilder);
     }
 
     private void printData() {
         for (String[] row : this.rows) {
             for (int i = 0; i < row.length; i++) {
                 final int width = this.widthsCache[i];
-                System.out.printf("| %-" + width + "s ", row[i]);
+                this.dataBuilder.append(String.format("| %-" + width + "s ", row[i]));
             }
-            System.out.println('|');
+            this.dataBuilder.append("|\n");
         }
+        System.out.print(this.dataBuilder);
     }
 
-    private void printHeaders() {
-        for (int i = 0; i < this.headers.length; i++) {
-            final int width = this.widthsCache[i];
-            System.out.printf("| %-" + width + "s ", this.headers[i]);
-        }
-        System.out.println('|');
-    }
-
-    public int[] getHeaderWidths(String[] headers) {
-        int[] widths = new int[headers.length];
-        for (int i = 0; i < headers.length; i++) {
-            widths[i] = headers[i].length();
-        }
-        return widths;
+    private void resetBuilder() {
+        this.headerBuilder.setLength(0);
+        this.dataBuilder.setLength(0);
     }
 
     private void calculateTableWidth() {
