@@ -6,10 +6,16 @@ import kesares.textadventure.util.lang.Strings;
 
 public final class OutputManager {
 
-    private static final byte CLEAR_LENGTH = 50;
-    public static final byte LINE_LENGTH = CLEAR_LENGTH;
+    public static final byte LINE_LENGTH = 50;
     public static final char EQUAL_SIGN = '=';
     public static final char MINUS_SIGN = '-';
+
+    private static final StringBuilder LINE_BUILDER = new StringBuilder();
+    private static final StringBuilder CLEANER = new StringBuilder();
+
+    static {
+        CLEANER.append("\n".repeat(50));
+    }
 
     private OutputManager() {
         throw new UnsupportedOperationException();
@@ -47,10 +53,9 @@ public final class OutputManager {
     }
 
     public static void printPartingLine(char c, int length) {
-        for (int i = 0; i < length; i++) {
-            System.out.print(c);
-        }
-        System.out.println();
+        LINE_BUILDER.append(String.valueOf(c).repeat(Math.max(0, length)));
+        System.out.println(LINE_BUILDER);
+        LINE_BUILDER.setLength(0);
     }
 
     public static void printPartingLine(char c) {
@@ -67,9 +72,7 @@ public final class OutputManager {
     }
 
     public static void clearConsole() {
-        for (byte i = 0; i < CLEAR_LENGTH; ++i) {
-            System.out.println();
-        }
+        System.out.println(CLEANER);
     }
 
     public static void printOptionDoesntExist(byte option) {
