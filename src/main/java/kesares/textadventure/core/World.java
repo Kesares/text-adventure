@@ -5,7 +5,7 @@ import kesares.textadventure.io.InputManager;
 import kesares.textadventure.io.MenuPrinter;
 import kesares.textadventure.io.OutputManager;
 import kesares.textadventure.util.AnsiColor;
-import kesares.textadventure.util.Refactoring;
+import kesares.textadventure.util.Refactor;
 import kesares.textadventure.util.lang.LanguageSelector;
 
 public class World {
@@ -33,9 +33,8 @@ public class World {
                 case 1 -> this.continueJourney();
                 case 2 -> this.player.printStats();
                 case 3 -> this.player.printInventory();
-                case 4 -> this.askGameSaving();
-                case 5 -> Settings.changeSettings();
-                case 6 -> { return; }
+                case 4 -> Settings.changeSettings();
+                case 5 -> { return; }
                 default -> OutputManager.printOptionDoesntExist(option);
             }
         }
@@ -47,15 +46,11 @@ public class World {
 //        double eventRate = Math.random();
 //
 //        if (eventRate < 0.7) {
-////            Battle battle = new Battle(this.player, this.getRandomInvader());
-////            battle.begin();
+//            Battle battle = new Battle(this.player, this.getRandomInvader());
+//            battle.begin();
 //        } else if (eventRate < 0.9) {
-////            OutputManager.printTitle(Strings.peacefulJourney);
+//            OutputManager.printTitle(Strings.peacefulJourney);
 //        }
-    }
-
-    private void askGameSaving() {
-        OutputManager.printComingSoon("Spiel speichern? - ");
     }
 
 //    private Invader getRandomInvader() {
@@ -63,7 +58,7 @@ public class World {
 //        return new Invader(Strings.invaderNames[index], this.player.getLevel());
 //    }
 
-    @Refactoring
+    @Refactor
     private static Player createPlayer() {
         OutputManager.clearConsole();
         OutputManager.printTitle(LanguageSelector.strings.createNewPlayer);

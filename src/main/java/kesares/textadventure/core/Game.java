@@ -46,6 +46,7 @@ public class Game {
         OutputManager.clearConsole();
         this.worldsTable.print();
         int index = InputManager.enterByte("> ") - 1;
+        OutputManager.clearConsole();
         if (index == this.worlds.size()) return;
         this.playSelectedWorld(index);
     }

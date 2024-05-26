@@ -9,5 +9,5 @@ import static java.lang.annotation.ElementType.*;
  * and methods might change parameters or return types.
  */
 @Target({TYPE, FIELD, METHOD, PARAMETER, CONSTRUCTOR, LOCAL_VARIABLE})
-public @interface Refactoring {
+public @interface Refactor {
 }
