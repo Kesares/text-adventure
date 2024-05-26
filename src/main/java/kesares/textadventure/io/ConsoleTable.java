@@ -47,7 +47,7 @@ public class ConsoleTable {
         OutputManager.printPartingLine(OutputManager.MINUS_SIGN, this.tableWidth);
         this.printData();
         OutputManager.printPartingLine(OutputManager.MINUS_SIGN, this.tableWidth);
-        System.out.printf("| %d: Zurück |%n", this.rows.size() + 1);
+        System.out.printf("| %-" + this.widthsCache[0] + "s | %-" + this.widthsCache[1] + "s |%n", this.rows.size() + 1 + ".", LanguageSelector.strings.back);
         OutputManager.printPartingLine(OutputManager.EQUAL_SIGN, this.tableWidth);
         this.resetBuilder();
     }

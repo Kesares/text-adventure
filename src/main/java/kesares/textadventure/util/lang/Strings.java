@@ -4,13 +4,13 @@ public final class Strings {
 
     public static final String COMING_SOON = "Coming soon...";
 
+    public String back;
     public String createNewPlayer;
     public String createNewWorld;
     public String enterToContinue;
     public String enterWorldName;
     public String invalidInput;
     public String invalidPlayerName;
-    public String isGameSaving;
     public String languageSelectionMenu;
     public String languageSelectionMenuTitle;
     public String loadingWorldsMenuTitle;
@@ -21,7 +21,6 @@ public final class Strings {
     public String settingsMenuTitle;
     public String worlds;
     public String worldMenu;
-    public String worldSaved;
     public String yesNo;
 
 //    public String battleMenu;

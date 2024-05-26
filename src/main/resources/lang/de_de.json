@@ -1,11 +1,11 @@
 {
+  "back": "Zurück",
   "createNewPlayer": "Neuen Spieler erstellen",
   "createNewWorld": "Neue Welt erstellen",
   "enterToContinue": "Drücke 'Enter' um fortzufahren...",
   "enterWorldName": "Weltname: ",
   "invalidInput": "Hinweis: Ungültige Eingabe. Gib eine Ganzzahl ein!",
   "invalidPlayerName": "Hinweis: Ungültiger Spielername!",
-  "isGameSaving": "Welt speichern?",
   "languageSelectionMenu": "1: Englisch\n2: Deutsch\n\n3: Zurück",
   "languageSelectionMenuTitle": "Sprachauswahl",
   "mainMenu": "1: Neue Welt erstellen\n2: Welt laden\n3: Einstellungen\n4: Beenden",
@@ -16,6 +16,5 @@
   "settingsMenuTitle": "Einstellungen",
   "worlds": "Welten",
   "worldMenu": "1: Story fortsetzen...\n2: Charakterinfo\n3: Inventar\n4: Einstellungen\n5: Hauptmenü",
-  "worldSaved": "Hinweis: Story gespeichert!",
   "yesNo": "1: Ja\n2: Nein"
 }
