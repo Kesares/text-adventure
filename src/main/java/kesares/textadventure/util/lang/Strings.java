@@ -15,6 +15,7 @@ public final class Strings {
     public String languageSelectionMenuTitle;
     public String loadingWorldsMenuTitle;
     public String mainMenu;
+    public String numero;
     public String optionDoesntExist;
     public String playerName;
     public String settingsMenu;

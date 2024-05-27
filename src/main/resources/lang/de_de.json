@@ -9,6 +9,7 @@
   "languageSelectionMenu": "1: Englisch\n2: Deutsch\n\n3: Zurück",
   "languageSelectionMenuTitle": "Sprachauswahl",
   "mainMenu": "1: Neue Welt erstellen\n2: Welt laden\n3: Einstellungen\n4: Beenden",
+  "numero": "Nr.",
   "optionDoesntExist": "Hinweis: Die Option '%s' gibt es nicht.",
   "playerName": "Spielername: ",
   "loadingWorldsMenuTitle": "Gespeicherte Welten",

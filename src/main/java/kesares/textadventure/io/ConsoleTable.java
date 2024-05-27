@@ -7,7 +7,7 @@ import java.util.List;
 
 public class ConsoleTable {
 
-    private final String[] headers;
+    private String[] headers;
     private final List<String[]> rows;
     private final int[] widthsCache;
     private int tableWidth;
@@ -89,5 +89,15 @@ public class ConsoleTable {
         for (int i = 0; i < row.length; i++) {
             this.widthsCache[i] = Math.max(this.widthsCache[i], row[i].length());
         }
+    }
+
+    public void setHeaders(String... headers) {
+        this.headers = headers;
+        this.calculateColumnWidths(headers);
+    }
+
+    public void setHeader(String header, int index) {
+        this.headers[index] = header;
+        this.widthsCache[index] = Math.max(this.widthsCache[index], header.length());
     }
 }

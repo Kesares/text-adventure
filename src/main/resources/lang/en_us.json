@@ -9,6 +9,7 @@
   "languageSelectionMenu": "1: English\n2: German\n\n3: Back",
   "languageSelectionMenuTitle": "Language Selection",
   "mainMenu": "1: Create new world\n2: Load world\n3: Settings\n4: Exit",
+  "numero": "No.",
   "optionDoesntExist": "Hint: The option '%s' doesn't exit.",
   "playerName": "Player name: ",
   "loadingWorldsMenuTitle": "Saved Worlds",

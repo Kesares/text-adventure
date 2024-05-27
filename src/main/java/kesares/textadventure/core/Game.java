@@ -13,7 +13,7 @@ public class Game {
     private boolean isRunning;
 
     public Game() {
-        this.worldsTable = new ConsoleTable("Nr.", LanguageSelector.strings.worlds);
+        this.worldsTable = new ConsoleTable(LanguageSelector.strings.numero, LanguageSelector.strings.worlds);
         this.worlds = WorldIO.loadWorlds(this.worldsTable);
         this.isRunning = true;
     }
@@ -44,6 +44,7 @@ public class Game {
 
     private void selectWorld() {
         OutputManager.clearConsole();
+        this.worldsTable.setHeaders(LanguageSelector.strings.numero, LanguageSelector.strings.worlds);
         this.worldsTable.print();
         int index = InputManager.enterByte("> ") - 1;
         OutputManager.clearConsole();
