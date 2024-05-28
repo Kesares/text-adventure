@@ -12,7 +12,7 @@ import java.util.List;
 
 public final class WorldIO {
 
-    private static final String RESOURCES_PATH = "src/main/resources/";
+    private static final String WORLDS_FILE_PATH = "src/main/resources/worlds.json";
 
     private WorldIO() {
         throw new UnsupportedOperationException();
@@ -23,7 +23,7 @@ public final class WorldIO {
         OutputManager.printCenteredColorText("Load worlds...", AnsiColor.YELLOW, OutputManager.LINE_LENGTH);
         final ObjectMapper mapper = new ObjectMapper();
         try {
-            final List<World> worlds = mapper.readValue(new File(RESOURCES_PATH + "worlds.json"), new TypeReference<>(){});
+            final List<World> worlds = mapper.readValue(new File(WORLDS_FILE_PATH), new TypeReference<>(){});
             OutputManager.printCenteredColorText(worlds.size() + " worlds loaded!", AnsiColor.YELLOW, OutputManager.LINE_LENGTH);
             return worlds;
         } catch (IOException e) {
@@ -36,7 +36,7 @@ public final class WorldIO {
         final ObjectMapper mapper = new ObjectMapper();
         final ObjectWriter writer = mapper.writerWithDefaultPrettyPrinter();
         try {
-            writer.writeValue(new File(RESOURCES_PATH + "worlds.json"), worlds);
+            writer.writeValue(new File(WORLDS_FILE_PATH), worlds);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
