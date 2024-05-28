@@ -7,13 +7,15 @@ public final class Strings {
     public String back;
     public String createNewPlayer;
     public String createNewWorld;
+    public String deleted;
     public String enterToContinue;
     public String enterWorldName;
     public String invalidInput;
     public String invalidPlayerName;
+    public String invalidWorldName;
     public String languageSelectionMenu;
     public String languageSelectionMenuTitle;
-    public String loadingWorldsMenuTitle;
+    public String savedWorldsTitle;
     public String mainMenu;
     public String numero;
     public String optionDoesntExist;
@@ -22,6 +24,7 @@ public final class Strings {
     public String settingsMenuTitle;
     public String worlds;
     public String worldMenu;
+    public String worldSelectionMenu;
     public String yesNo;
 
 //    public String battleMenu;

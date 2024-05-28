@@ -18,15 +18,12 @@ public final class WorldIO {
         throw new UnsupportedOperationException();
     }
 
-    public static List<World> loadWorlds(ConsoleTable worldTable) {
+    public static List<World> loadWorlds() {
         OutputManager.printBoldPartingLine();
         OutputManager.printCenteredColorText("Load worlds...", AnsiColor.YELLOW, OutputManager.LINE_LENGTH);
         final ObjectMapper mapper = new ObjectMapper();
         try {
             final List<World> worlds = mapper.readValue(new File(RESOURCES_PATH + "worlds.json"), new TypeReference<>(){});
-            for (int i = 0; i < worlds.size(); i++) {
-                worldTable.addRow(i + 1 + ".", worlds.get(i).getName());
-            }
             OutputManager.printCenteredColorText(worlds.size() + " worlds loaded!", AnsiColor.YELLOW, OutputManager.LINE_LENGTH);
             return worlds;
         } catch (IOException e) {

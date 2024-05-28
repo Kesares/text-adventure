@@ -39,7 +39,7 @@ class ConsoleTableTest {
     @Test
     public void testPrintPrintsCorrectly() {
         table.addRow("Row1Col1", "Row1Col2", "Row1Col3");
-        table.print();
+        table.print("Test Table");
         String output = outputStreamCaptor.toString().trim();
 
         assertTrue(output.contains("Header1"));

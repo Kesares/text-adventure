@@ -41,8 +41,8 @@ public class ConsoleTable {
         this.rows.add(row);
     }
 
-    public void print() {
-        OutputManager.printTitle(LanguageSelector.strings.loadingWorldsMenuTitle, this.tableWidth);
+    public void print(String title) {
+        OutputManager.printTitle(title, this.tableWidth);
         this.printHeaders();
         OutputManager.printPartingLine(OutputManager.MINUS_SIGN, this.tableWidth);
         this.printData();
@@ -94,10 +94,5 @@ public class ConsoleTable {
     public void setHeaders(String... headers) {
         this.headers = headers;
         this.calculateColumnWidths(headers);
-    }
-
-    public void setHeader(String header, int index) {
-        this.headers[index] = header;
-        this.widthsCache[index] = Math.max(this.widthsCache[index], header.length());
     }
 }
