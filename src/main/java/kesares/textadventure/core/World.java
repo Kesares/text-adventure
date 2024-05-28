@@ -24,8 +24,18 @@ public class World {
 
     public World() {}
 
+    public void changeWorldName() {
+        OutputManager.printBoldPartingLine();
+        String name = InputManager.enterString("Neuer Weltname: ");
+        if (!isValidString(name)) {
+            OutputManager.printColorText(LanguageSelector.strings.invalidWorldName, AnsiColor.YELLOW);
+            this.changeWorldName();
+        }
+        this.name = name;
+    }
+
     public void load() {
-        while(true) {
+        while (true) {
             InputManager.enterToContinue();
             OutputManager.clearConsole();
             final byte option = MenuPrinter.printWorldMenu(this.name);
@@ -52,27 +62,27 @@ public class World {
 //            OutputManager.printTitle(Strings.peacefulJourney);
 //        }
     }
-
 //    private Invader getRandomInvader() {
 ////        int index = (int) (Math.random() * Strings.invaderNames.length);
 //        return new Invader(Strings.invaderNames[index], this.player.getLevel());
+
 //    }
 
-    @Refactor
+    @Refactor(msg = "static")
     private static Player createPlayer() {
         OutputManager.clearConsole();
         OutputManager.printTitle(LanguageSelector.strings.createNewPlayer);
         String name = InputManager.enterString(LanguageSelector.strings.playerName);
         OutputManager.printBoldPartingLine();
-        if (!isValidPlayerName(name)) {
+        if (!isValidString(name)) {
             OutputManager.printColorText(LanguageSelector.strings.invalidPlayerName, AnsiColor.YELLOW);
             return createPlayer();
         }
         return new Player(name);
     }
 
-    private static boolean isValidPlayerName(String name) {
-        return !name.isEmpty() || !name.isBlank();
+    private static boolean isValidString(String text) {
+        return !text.isEmpty() || !text.isBlank();
     }
 
     public String getName() {
