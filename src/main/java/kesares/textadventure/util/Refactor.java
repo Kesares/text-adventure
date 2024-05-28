@@ -10,4 +10,6 @@ import static java.lang.annotation.ElementType.*;
  */
 @Target({TYPE, FIELD, METHOD, PARAMETER, CONSTRUCTOR, LOCAL_VARIABLE})
 public @interface Refactor {
+
+    String msg();
 }
