@@ -17,8 +17,4 @@ public final class Maths {
     public static boolean getRandomBoolean() {
         return RANDOM.nextBoolean();
     }
-
-    public static boolean isNull(Object object) {
-        return object == null;
-    }
 }

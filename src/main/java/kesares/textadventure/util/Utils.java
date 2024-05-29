@@ -6,6 +6,10 @@ public final class Utils {
         throw new UnsupportedOperationException();
     }
 
+    public static boolean isNull(Object object) {
+        return object == null;
+    }
+
     public static boolean isInvalidString(String text) {
         return text == null || text.isEmpty() || text.isBlank();
     }
