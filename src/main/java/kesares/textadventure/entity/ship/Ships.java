@@ -1,0 +1,14 @@
+package kesares.textadventure.entity.ship;
+
+public final class Ships {
+
+    public static final Ship SLOOP =  new Ship.Builder().goldCosts(1_000).build();
+    public static final Ship BRIGANTINE =  new Ship.Builder().hp(4_500).cannons(20).harpoons(20).goldCosts(150_000).build();
+    public static final Ship WAR_BRIGANTINE =  new Ship.Builder().hp(6_000).cannons(30).harpoons(30).goldCosts(1_000_000).build();
+    public static final Ship FRIGATE =  new Ship.Builder().hp(8_000).cannons(50).harpoons(40).diamondCosts(25_000).build();
+    public static final Ship LARGE_FRIGATE =  new Ship.Builder().hp(12_000).cannons(60).harpoons(30).diamondCosts(80_000).build();
+
+    private Ships() {
+        throw new UnsupportedOperationException();
+    }
+}

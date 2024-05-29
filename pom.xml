@@ -6,7 +6,7 @@
 
     <groupId>kesares</groupId>
     <artifactId>TextAdventure</artifactId>
-    <version>0.2.4-pre-alpha</version>
+    <version>0.3.0-pre-alpha</version>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
