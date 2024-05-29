@@ -5,8 +5,8 @@ import kesares.textadventure.util.AnsiColor;
 public class Item {
 
     private final String ID;
-    private String name;
-    private AnsiColor rarity;
+    private final String name;
+    private final AnsiColor rarity;
 
     public Item(String ID, String name, AnsiColor rarity) {
         this.ID = ID;
