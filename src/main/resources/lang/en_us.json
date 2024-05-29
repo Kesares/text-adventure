@@ -14,6 +14,7 @@
   "numero": "No.",
   "optionDoesntExist": "Hint: The option '%s' doesn't exit.",
   "playerName": "Player name: ",
+  "playerStatsTitle": "Player info: ",
   "savedWorldsTitle": "Saved Worlds",
   "settingsMenu": "1: Language selection\n\n2: Back",
   "settingsMenuTitle": "Settings",

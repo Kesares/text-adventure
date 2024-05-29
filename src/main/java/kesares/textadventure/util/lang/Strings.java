@@ -20,17 +20,17 @@ public final class Strings {
     public String numero;
     public String optionDoesntExist;
     public String playerName;
+    public String playerStatsTitle;
+    public String yesNo;
     public String settingsMenu;
     public String settingsMenuTitle;
     public String worlds;
     public String worldMenu;
     public String worldSelectionMenu;
-    public String yesNo;
 
 //    public String battleMenu;
 //    public String inventoryTitle;
 //    public String levelUp;
-//    public String playerStatsTitle;
 //    public String[] invaderNames;
 //    public String peacefulJourney;
 //    public String whatIsYourPlayerName;
