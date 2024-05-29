@@ -6,6 +6,7 @@ import kesares.textadventure.io.MenuPrinter;
 import kesares.textadventure.io.OutputManager;
 import kesares.textadventure.util.AnsiColor;
 import kesares.textadventure.util.Refactor;
+import kesares.textadventure.util.Utils;
 import kesares.textadventure.util.lang.LanguageSelector;
 
 public class World {
@@ -27,7 +28,7 @@ public class World {
     public void changeWorldName() {
         OutputManager.printBoldPartingLine();
         String name = InputManager.enterString("Neuer Weltname: ");
-        if (!isValidString(name)) {
+        if (Utils.isInvalidString(name)) {
             OutputManager.printColorText(LanguageSelector.strings.invalidWorldName, AnsiColor.YELLOW);
             this.changeWorldName();
         }
@@ -74,15 +75,11 @@ public class World {
         OutputManager.printTitle(LanguageSelector.strings.createNewPlayer);
         String name = InputManager.enterString(LanguageSelector.strings.playerName);
         OutputManager.printBoldPartingLine();
-        if (!isValidString(name)) {
+        if (Utils.isInvalidString(name)) {
             OutputManager.printColorText(LanguageSelector.strings.invalidPlayerName, AnsiColor.YELLOW);
             return createPlayer();
         }
         return new Player(name);
-    }
-
-    private static boolean isValidString(String text) {
-        return !text.isEmpty() || !text.isBlank();
     }
 
     public String getName() {
