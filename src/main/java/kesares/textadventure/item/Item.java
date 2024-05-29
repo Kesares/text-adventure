@@ -1,13 +1,17 @@
 package kesares.textadventure.item;
 
+import kesares.textadventure.util.AnsiColor;
+
 public class Item {
 
     private final String ID;
     private String name;
+    private AnsiColor rarity;
 
-    public Item(String ID, String name) {
+    public Item(String ID, String name, AnsiColor rarity) {
         this.ID = ID;
         this.name = name;
+        this.rarity = rarity;
     }
 
     public String getID() {
@@ -16,5 +20,9 @@ public class Item {
 
     public String getName() {
         return name;
+    }
+
+    public AnsiColor getRarity() {
+        return rarity;
     }
 }
