@@ -23,7 +23,7 @@ public final class OutputManager {
 
     public static void printTitle(String title, char c, int length, AnsiColor color) {
         printPartingLine(c, length);
-        System.out.printf("%s%" + calculateCenterWidth(title, length) + "s%s%n", color.getValue(), title, AnsiColor.RESET.getValue());
+        System.out.printf("%s%" + calculateCenterWidth(title, length) + "s%s%n", color.getValue(), title, AnsiColor.DEFAULT.getValue());
         printPartingLine(c, length);
     }
 
@@ -40,7 +40,7 @@ public final class OutputManager {
     }
 
     public static void printColorText(String text, AnsiColor color) {
-        System.out.printf("%s%s%s%n", color.getValue(), text, AnsiColor.RESET.getValue());
+        System.out.printf("%s%s%s%n", color.getValue(), text, AnsiColor.DEFAULT.getValue());
     }
 
     public static void printColorText(String text) {
@@ -49,7 +49,7 @@ public final class OutputManager {
 
     public static void printCenteredColorText(String text, AnsiColor color, int length) {
         int width = calculateCenterWidth(text, length);
-        System.out.printf("%s%" + width + "s%s%n", color.getValue(), text, AnsiColor.RESET.getValue());
+        System.out.printf("%s%" + width + "s%s%n", color.getValue(), text, AnsiColor.DEFAULT.getValue());
     }
 
     public static void printPartingLine(char c, int length) {
