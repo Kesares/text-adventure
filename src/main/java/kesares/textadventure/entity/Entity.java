@@ -1,69 +1,75 @@
 package kesares.textadventure.entity;
 
-import kesares.textadventure.util.Maths;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import kesares.textadventure.entity.ship.Ship;
 
 public abstract class Entity {
 
     protected String name;
+    protected Ship ship;
     protected int maxHP;
-    protected int HP;
+    protected int hp;
     protected int level;
     protected int exp;
     protected int gold;
-    protected int atk;
-    protected int def;
-    protected int armor;
+    protected int cannons;
+    protected int harpoons;
 
-    public Entity(String name, int[] properties) {
+    public Entity(String name, Ship ship, int level, int exp, int gold) {
         this.name = name;
-        this.maxHP = properties[0];
-        this.HP = properties[0];
-        this.level = properties[1];
-        this.exp = properties[2];
-        this.gold = properties[3];
-        this.atk = properties[4];
-        this.def = properties[5];
-        this.armor = properties[6];
-    }
-
-    public int calculateAtk() {
-        return Maths.getRandomNumberBetween(Math.max(this.atk - 2, 0), this.atk + 3);
-    }
-
-    public int calculateDef() {
-        return (int) (Math.random() * def + this.armor / 30);
+        this.ship = ship;
+        this.level = level;
+        this.exp = exp;
+        this.gold = gold;
+        this.maxHP = this.ship.getHp();
+        this.hp = this.maxHP;
+        this.cannons += this.ship.getCannons();
+        this.harpoons += this.ship.getHarpoons();
     }
 
     public String getName() {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public int getMaxHP() {
         return maxHP;
     }
 
+    public void setMaxHP(int maxHP) {
+        this.maxHP = maxHP;
+    }
+
     public int getHP() {
-        return HP;
+        return hp;
     }
 
-    public void setHP(int HP) {
-        this.HP = HP;
+    public void setHp(int hp) {
+        this.hp = hp;
     }
 
-    public void removeHP(int HP) {
-        this.HP -= HP;
-    }
-
+    @JsonIgnore
     public boolean isAlive() {
-        return this.HP > 0;
+        return this.hp > 0;
     }
 
     public int getLevel() {
         return level;
     }
 
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
     public int getExp() {
         return exp;
+    }
+
+    public void setExp(int exp) {
+        this.exp = exp;
     }
 
     public void addExp(int exp) {
@@ -72,6 +78,10 @@ public abstract class Entity {
 
     public int getGold() {
         return gold;
+    }
+
+    public void setGold(int gold) {
+        this.gold = gold;
     }
 
     public void addGold(int gold) {
