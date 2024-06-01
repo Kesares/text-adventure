@@ -40,7 +40,7 @@ public class Game {
         this.world = new World(worldName);
         this.worlds.add(this.world);
         this.worldsTable.addRow(this.worlds.size() + ".", this.world.getName());
-        this.world.load();
+        this.world.update();
     }
 
     private void showWorlds() {
@@ -58,7 +58,10 @@ public class Game {
         this.world = this.worlds.get(index);
         byte option = MenuPrinter.printWorldSelectionMenu(this.world.getName());
         switch (option) {
-            case 1 -> this.world.load();
+            case 1 -> {
+                OutputManager.printBoldPartingLine();
+                this.world.update();
+            }
             case 2 -> {
                 this.world.changeWorldName();
                 this.createNewWorldTable();

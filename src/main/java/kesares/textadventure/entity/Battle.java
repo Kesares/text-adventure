@@ -3,33 +3,34 @@ package kesares.textadventure.entity;
 import kesares.textadventure.io.InputManager;
 import kesares.textadventure.io.MenuPrinter;
 import kesares.textadventure.io.OutputManager;
+import kesares.textadventure.util.lang.LanguageSelector;
 
 public class Battle {
 
     private final Player player;
-    private final Invader invader;
+    private final NPC npc;
 
-    public Battle(Player player, Invader invader) {
+    public Battle(Player player, NPC npc) {
         this.player = player;
-        this.invader = invader;
+        this.npc = npc;
     }
 
     public void begin() {
-//        String title = String.format(Strings.beingAttacked, this.invader.getName(), this.invader.getLevel());
-//        OutputManager.printTitle(title);
+        String title = String.format(LanguageSelector.strings.beingAttacked, this.npc.getName(), this.npc.getLevel());
+        OutputManager.printTitle(title, title.length());
         InputManager.enterToContinue();
-        this.battle();
+        this.update();
     }
 
-    private void battle() {
-        byte option;
+    private void update() {
         do {
             OutputManager.clearConsole();
-            option = MenuPrinter.printBattleMenu(this.player, this.invader);
+            final byte option = MenuPrinter.printBattleMenu(this.player, this.npc);
             switch (option) {
                 case 1 -> this.attack();
                 case 2 -> {
-//                    System.out.println(Strings.runAway);
+                    System.out.println(LanguageSelector.strings.flee);
+                    OutputManager.printBoldPartingLine();
                     return;
                 }
                 default -> OutputManager.printOptionDoesntExist(option);
@@ -39,23 +40,24 @@ public class Battle {
     }
 
     private void attack() {
-        int makeDamage = Math.max(this.player.calculateAtk() - this.invader.calculateDef(), 0);
-        int takeDamage = Math.max(this.invader.calculateAtk() - this.player.calculateDef(), 0);
+        int takeDamage = this.npc.getCannons();
+        int makeDamage = this.player.getCannons();
         this.player.removeHP(takeDamage);
-        this.invader.removeHP(makeDamage);
+        this.npc.removeHP(makeDamage);
         this.printAttackInfo(takeDamage, makeDamage);
     }
 
     private void printAttackInfo(int takeDamage, int makeDamage) {
+        OutputManager.clearConsole();
         OutputManager.printBoldPartingLine();
-//        System.out.printf(Strings.makeDamage, this.invader.getName(), makeDamage);
-//        System.out.printf(Strings.takeDamage, this.invader.getName(), takeDamage);
+        System.out.printf(LanguageSelector.strings.makeDamage, this.npc.getName(), makeDamage);
+        System.out.printf(LanguageSelector.strings.takeDamage, this.npc.getName(), takeDamage);
         OutputManager.printBoldPartingLine();
         InputManager.enterToContinue();
     }
 
     private boolean areBothEntitiesAlive() {
-        return this.player.isAlive() && this.invader.isAlive();
+        return this.player.isAlive() && this.npc.isAlive();
     }
 
     private void end() {
@@ -63,19 +65,18 @@ public class Battle {
         if (this.player.isAlive()) {
             this.playerWins();
         } else {
-//            OutputManager.printTitle(Strings.lostBattle);
-            // invaderWins(), lostXp(), lostGold()
-            // or end of story
+            OutputManager.printTitle(LanguageSelector.strings.lostBattle);
+//             invaderWins(), lostXp(), lostGold()
         }
-        this.player.setHP(this.player.getMaxHP());
+        this.player.setHp(this.player.getMaxHP());
     }
 
     private void playerWins() {
-//        OutputManager.printTitle(String.format(Strings.defeatedEntity, this.invader.getName(), this.invader.getLevel()));
-        this.player.addExp(this.invader.getExp());
-        this.player.addGold(this.invader.getGold());
-//        System.out.printf(Strings.gotXP, this.invader.getExp());
-//        System.out.printf(Strings.gotGold, this.invader.getGold());
+        OutputManager.printTitle(String.format(LanguageSelector.strings.defeatedEntity, this.npc.getName(), this.npc.getLevel()));
+        this.player.addExp(this.npc.getExp());
+        this.player.addGold(this.npc.getGold());
+        System.out.printf(LanguageSelector.strings.gotExp, this.npc.getExp());
+        System.out.printf(LanguageSelector.strings.gotGold, this.npc.getGold());
         OutputManager.printBoldPartingLine();
     }
 }

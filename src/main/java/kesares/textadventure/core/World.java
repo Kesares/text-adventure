@@ -1,5 +1,7 @@
 package kesares.textadventure.core;
 
+import kesares.textadventure.entity.Battle;
+import kesares.textadventure.entity.NPC;
 import kesares.textadventure.entity.Player;
 import kesares.textadventure.io.InputManager;
 import kesares.textadventure.io.MenuPrinter;
@@ -10,6 +12,9 @@ import kesares.textadventure.util.Utils;
 import kesares.textadventure.util.lang.LanguageSelector;
 
 public class World {
+
+    private static final String[] NPCS = {"Seeratte", "Williams Garde", "Seebär", "Dampiers Pirat", "Eisenbrecher", "Schwarzraben",
+            "Huscarl", "Helgis Informant", "Abgrundpirat", "Thryms Scherge"};
 
     private String name;
     private Player player;
@@ -35,7 +40,7 @@ public class World {
         this.name = name;
     }
 
-    public void load() {
+    public void update() {
         while (true) {
             InputManager.enterToContinue();
             OutputManager.clearConsole();
@@ -53,21 +58,22 @@ public class World {
 
     private void continueJourney() {
         OutputManager.printComingSoon("Story fortsetzen... - ");
-//        OutputManager.clearConsole();
-//        double eventRate = Math.random();
-//
-//        if (eventRate < 0.7) {
-//            Battle battle = new Battle(this.player, this.getRandomInvader());
-//            battle.begin();
-//        } else if (eventRate < 0.9) {
-//            OutputManager.printTitle(Strings.peacefulJourney);
-//        }
-    }
-//    private Invader getRandomInvader() {
-////        int index = (int) (Math.random() * Strings.invaderNames.length);
-//        return new Invader(Strings.invaderNames[index], this.player.getLevel());
+        OutputManager.clearConsole();
 
-//    }
+        double eventRate = Math.random();
+
+        if (eventRate < 0.8) {
+            Battle battle = new Battle(this.player, this.getRandomInvader());
+            battle.begin();
+        } else {
+            OutputManager.printTitle(LanguageSelector.strings.peacefulJourney);
+        }
+    }
+
+    private NPC getRandomInvader() {
+        int index = (int) (Math.random() * NPCS.length);
+        return new NPC(NPCS[index]);
+    }
 
     @Refactor(msg = "static")
     private static Player createPlayer() {

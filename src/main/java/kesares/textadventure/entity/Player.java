@@ -36,28 +36,4 @@ public class Player extends Entity {
             this.gold
         );
     }
-
-    public Ship getShip() {
-        return ship;
-    }
-
-    public void setShip(Ship ship) {
-        this.ship = ship;
-    }
-
-    public int getCannons() {
-        return cannons;
-    }
-
-    public void setCannons(int cannons) {
-        this.cannons = cannons;
-    }
-
-    public int getHarpoons() {
-        return harpoons;
-    }
-
-    public void setHarpoons(int harpoons) {
-        this.harpoons = harpoons;
-    }
 }

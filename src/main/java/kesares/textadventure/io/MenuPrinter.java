@@ -1,5 +1,7 @@
 package kesares.textadventure.io;
 
+import kesares.textadventure.entity.NPC;
+import kesares.textadventure.entity.Player;
 import kesares.textadventure.util.lang.LanguageSelector;
 
 public final class MenuPrinter {
@@ -50,14 +52,14 @@ public final class MenuPrinter {
         return InputManager.enterBoolean("> ");
     }
 
-//    public static byte printBattleMenu(Player player, Invader invader) {
-//        OutputManager.printTitle("Battle");
-//        System.out.printf("%s (%d)\r\nHP: %d/%d\r\n", player.getName(), player.getLevel(), player.getHP(), player.getMaxHP());
-//        OutputManager.printPartingLine(OutputManager.MINUS_SIGN);
-//        System.out.printf("%s (%d)\r\nHP: %d/%d\r\n", invader.getName(), invader.getLevel(), invader.getHP(), invader.getMaxHP());
-//        OutputManager.printPartingLine(OutputManager.MINUS_SIGN);
-////        System.out.println(Strings.battleMenu);
-//        OutputManager.printBoldPartingLine();
-//        return InputManager.enterByte("> ");
-//    }
+    public static byte printBattleMenu(Player player, NPC NPC) {
+        OutputManager.printTitle("Battle");
+        System.out.printf("%s (%d)%nHP: %d/%d%n", player.getName(), player.getLevel(), player.getHP(), player.getMaxHP());
+        OutputManager.printPartingLine(OutputManager.MINUS_SIGN);
+        System.out.printf("%s (%d)%nHP: %d/%d%n", NPC.getName(), NPC.getLevel(), NPC.getHP(), NPC.getMaxHP());
+        OutputManager.printPartingLine(OutputManager.MINUS_SIGN);
+        System.out.println(LanguageSelector.strings.battleMenu);
+        OutputManager.printBoldPartingLine();
+        return InputManager.enterByte("> ");
+    }
 }
