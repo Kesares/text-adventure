@@ -1,7 +1,7 @@
 package kesares.textadventure.core;
-
 import kesares.textadventure.io.*;
 import kesares.textadventure.util.AnsiColor;
+import kesares.textadventure.util.ResourceLibrary;
 import kesares.textadventure.util.lang.LanguageSelector;
 
 import java.util.List;
@@ -14,6 +14,7 @@ public class Game {
     private boolean isRunning;
 
     public Game() {
+        ResourceLibrary.init();
         this.worlds = WorldIO.loadWorlds();
         this.createNewWorldTable();
         this.isRunning = true;
