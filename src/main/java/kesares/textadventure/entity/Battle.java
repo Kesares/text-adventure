@@ -85,8 +85,10 @@ public class Battle {
 
     private int getSumDamage(Cannon[] cannons) {
         int sum = 0;
-        for (Cannon c : cannons) {
-            sum += c.getDamage();
+        for (Cannon cannon : cannons) {
+            if (Math.random() < cannon.getScattering()) {
+                sum += cannon.getDamage();
+            }
         }
         return sum;
     }
