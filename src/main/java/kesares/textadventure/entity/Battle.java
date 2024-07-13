@@ -3,6 +3,7 @@ package kesares.textadventure.entity;
 import kesares.textadventure.io.InputManager;
 import kesares.textadventure.io.MenuPrinter;
 import kesares.textadventure.io.OutputManager;
+import kesares.textadventure.item.Cannon;
 import kesares.textadventure.util.lang.LanguageSelector;
 
 public class Battle {
@@ -40,8 +41,10 @@ public class Battle {
     }
 
     private void attack() {
-        int takeDamage = this.npc.getCannons();
-        int makeDamage = this.player.getCannons();
+        Cannon[] npcCannons = this.npc.getShip().getCannons();
+        Cannon[] playerCannons = this.player.getShip().getCannons();
+        int takeDamage = this.getSumDamage(npcCannons);
+        int makeDamage = this.getSumDamage(playerCannons);
         this.player.removeHP(takeDamage);
         this.npc.removeHP(makeDamage);
         this.printAttackInfo(takeDamage, makeDamage);
@@ -78,5 +81,13 @@ public class Battle {
         System.out.printf(LanguageSelector.strings.gotExp, this.npc.getExp());
         System.out.printf(LanguageSelector.strings.gotGold, this.npc.getGold());
         OutputManager.printBoldPartingLine();
+    }
+
+    private int getSumDamage(Cannon[] cannons) {
+        int sum = 0;
+        for (Cannon c : cannons) {
+            sum += c.getDamage();
+        }
+        return sum;
     }
 }
