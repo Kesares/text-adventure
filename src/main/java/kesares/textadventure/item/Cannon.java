@@ -54,9 +54,9 @@ public class Cannon extends Item {
     @JsonPOJOBuilder(withPrefix = "")
     public static class Settings extends Item.Settings<Settings> {
 
-        private int damage;
-        private double scattering;
-        private boolean isDestroyable;
+        private int damage = 6;
+        private double scattering = 0.8;
+        private boolean isDestroyable = true;
 
         public Settings damage(int damage) {
             this.damage = damage;
