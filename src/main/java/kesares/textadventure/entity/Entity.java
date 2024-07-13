@@ -6,25 +6,21 @@ import kesares.textadventure.entity.ship.Ship;
 public abstract class Entity {
 
     protected String name;
-    protected Ship ship;
     protected int maxHP;
     protected int hp;
     protected int level;
     protected int exp;
     protected int gold;
-    protected int cannons;
-    protected int harpoons;
+    protected Ship ship;
 
-    public Entity(String name, Ship ship, int level, int exp, int gold) {
+    public Entity(String name, int level, int exp, int gold, Ship ship) {
         this.name = name;
-        this.ship = ship;
         this.level = level;
         this.exp = exp;
         this.gold = gold;
-        this.maxHP = this.ship.getHp();
+        this.maxHP = ship.getHp();
         this.hp = this.maxHP;
-        this.cannons += this.ship.getCannons();
-        this.harpoons += this.ship.getHarpoons();
+        this.ship = ship;
     }
 
     public String getName() {
@@ -98,21 +94,5 @@ public abstract class Entity {
 
     public void addGold(int gold) {
         this.gold += gold;
-    }
-
-    public int getCannons() {
-        return cannons;
-    }
-
-    public void setCannons(int cannons) {
-        this.cannons = cannons;
-    }
-
-    public int getHarpoons() {
-        return harpoons;
-    }
-
-    public void setHarpoons(int harpoons) {
-        this.harpoons = harpoons;
     }
 }

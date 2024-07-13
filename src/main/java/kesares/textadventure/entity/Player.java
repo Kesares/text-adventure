@@ -8,7 +8,7 @@ import kesares.textadventure.util.lang.LanguageSelector;
 public class Player extends Entity {
 
     public Player(String name) {
-        super(name, Ship.Settings.copyOf(Ships.SLOOP), 1, 0, 0);
+        super(name, 1, 0, 0,  Ship.Settings.copyOf(Ships.SLOOP));
     }
 
     public Player() {
