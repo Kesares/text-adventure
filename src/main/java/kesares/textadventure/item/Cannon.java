@@ -10,7 +10,7 @@ public class Cannon extends Item {
     private double scattering;
     private boolean isDestroyable;
 
-    protected Cannon(Settings settings) {
+    private Cannon(Settings settings) {
         super(settings);
         this.damage = settings.damage;
         this.scattering = settings.scattering;

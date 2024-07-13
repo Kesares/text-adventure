@@ -42,6 +42,7 @@ public class ConsoleTable {
     }
 
     public void print(String title) {
+        this.tableWidth = Math.max(this.tableWidth, title.length());
         OutputManager.printTitle(title, this.tableWidth);
         this.printHeaders();
         OutputManager.printPartingLine(OutputManager.MINUS_SIGN, this.tableWidth);
