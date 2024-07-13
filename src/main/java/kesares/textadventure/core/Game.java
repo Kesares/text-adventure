@@ -28,7 +28,7 @@ public class Game {
         switch (option) {
             case 1 -> this.playNewWorld();
             case 2 -> this.showWorlds();
-            case 3 -> Settings.changeSettings();
+            case 3 -> GameSettings.changeSettings();
             case 4 -> this.exit();
             default -> OutputManager.printOptionDoesntExist(option);
         }

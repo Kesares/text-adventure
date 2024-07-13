@@ -6,7 +6,7 @@
 
     <groupId>kesares</groupId>
     <artifactId>TextAdventure</artifactId>
-    <version>0.7.1-pre-alpha</version>
+    <version>0.7.2-pre-alpha</version>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
@@ -23,7 +23,7 @@
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <version>2.17.0</version>
+            <version>2.17.1</version>
         </dependency>
     </dependencies>
 

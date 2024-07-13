@@ -49,7 +49,7 @@ public class World {
                 case 1 -> this.continueJourney();
                 case 2 -> this.player.printStats();
                 case 3 -> this.player.printInventory();
-                case 4 -> Settings.changeSettings();
+                case 4 -> GameSettings.changeSettings();
                 case 5 -> { return; }
                 default -> OutputManager.printOptionDoesntExist(option);
             }

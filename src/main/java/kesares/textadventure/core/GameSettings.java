@@ -6,11 +6,11 @@ import kesares.textadventure.io.OutputManager;
 import kesares.textadventure.util.lang.Language;
 import kesares.textadventure.util.lang.LanguageSelector;
 
-public final class Settings {
+public final class GameSettings {
 
     private static final LanguageSelector LANGUAGE_SELECTOR = LanguageSelector.getInstance();
 
-    private Settings() {
+    private GameSettings() {
         throw new UnsupportedOperationException();
     }
 
