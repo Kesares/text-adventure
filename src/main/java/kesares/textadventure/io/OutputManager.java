@@ -21,9 +21,9 @@ public final class OutputManager {
         throw new UnsupportedOperationException();
     }
 
-    public static void printTitle(String title, char c, int length, AnsiColor color) {
+    public static void printTitle(String title, char c, int length, String color) {
         printPartingLine(c, length);
-        System.out.printf("%s%" + calculateCenterWidth(title, length) + "s%s%n", color.getValue(), title, AnsiColor.DEFAULT.getValue());
+        System.out.printf("%s%" + calculateCenterWidth(title, length) + "s%s%n", color, title, AnsiColor.DEFAULT);
         printPartingLine(c, length);
     }
 
@@ -39,17 +39,17 @@ public final class OutputManager {
         printTitle(title, LINE_LENGTH);
     }
 
-    public static void printColorText(String text, AnsiColor color) {
-        System.out.printf("%s%s%s%n", color.getValue(), text, AnsiColor.DEFAULT.getValue());
+    public static void printColorText(String text, String color) {
+        System.out.printf("%s%s%s%n", color, text, AnsiColor.DEFAULT);
     }
 
     public static void printColorText(String text) {
         printColorText(text, AnsiColor.YELLOW);
     }
 
-    public static void printCenteredColorText(String text, AnsiColor color, int length) {
+    public static void printCenteredColorText(String text, String color, int length) {
         int width = calculateCenterWidth(text, length);
-        System.out.printf("%s%" + width + "s%s%n", color.getValue(), text, AnsiColor.DEFAULT.getValue());
+        System.out.printf("%s%" + width + "s%s%n", color, text, AnsiColor.DEFAULT);
     }
 
     public static void printPartingLine(char c, int length) {
