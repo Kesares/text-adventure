@@ -14,14 +14,12 @@ public class Ship {
     private final int goldCosts;
     private final int diamondCosts;
     private final Cannon[] cannons;
-    private final int harpoons;
 
     private Ship(Settings settings) {
         this.hp = settings.hp;
         this.goldCosts = settings.goldCosts;
         this.diamondCosts = settings.diamondCosts;
         this.cannons = settings.cannons;
-        this.harpoons = settings.harpoons;
     }
 
     public int getHp() {
@@ -40,10 +38,6 @@ public class Ship {
         return cannons;
     }
 
-    public int getHarpoons() {
-        return harpoons;
-    }
-
     @JsonPOJOBuilder(withPrefix = "")
     public static class Settings {
 
@@ -51,11 +45,10 @@ public class Ship {
         private int goldCosts = 0;
         private int diamondCosts = 0;
         private Cannon[] cannons = new Cannon[10];
-        private int harpoons = 10;
 
         public static Ship copyOf(Ship ship) {
             return new Settings().hp(ship.hp).goldCosts(ship.goldCosts).diamondCosts(ship.diamondCosts)
-                    .cannons(ship.cannons).harpoons(ship.harpoons).build();
+                    .cannons(ship.cannons).build();
         }
 
         public Settings hp(int hp) {
@@ -79,12 +72,6 @@ public class Ship {
         public Settings cannons(Cannon[] cannons) {
             if (cannons == null) throw new NullPointerException();
             this.cannons = cannons;
-            return this;
-        }
-
-        public Settings harpoons(int harpoons) {
-            if (harpoons < 0) throw new IllegalArgumentException("harpoons < 0");
-            this.harpoons = harpoons;
             return this;
         }
 

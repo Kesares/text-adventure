@@ -59,11 +59,13 @@ public class Cannon extends Item {
         private boolean isDestroyable = true;
 
         public Settings damage(int damage) {
+            if (damage <= 0) throw new IllegalArgumentException("damage must be positive");
             this.damage = damage;
             return this;
         }
 
         public Settings scattering(double scattering) {
+            if (scattering <= 0) throw new IllegalArgumentException("scattering must be positive");
             this.scattering = scattering;
             return this;
         }
