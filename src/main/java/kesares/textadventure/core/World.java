@@ -13,8 +13,7 @@ import kesares.textadventure.util.lang.LanguageSelector;
 
 public class World {
 
-    private static final String[] NPCS = {"Seeratte", "Williams Garde", "Seebär", "Dampiers Pirat", "Eisenbrecher", "Schwarzraben",
-            "Huscarl", "Helgis Informant", "Abgrundpirat", "Thryms Scherge"};
+    private static final String[] NPCS = {"Seeratte", "Williams Garde", "Krebsmonster"};
 
     private String name;
     private Player player;
