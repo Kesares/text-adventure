@@ -4,6 +4,7 @@ public enum ItemGroup {
 
     CANNONS("Cannons"),
     HARPOONS("Harpoons"),
+    CANNONBALLS("Cannonballs"),
     MISCELLANEOUS("Miscellaneous");
 
     private final String name;

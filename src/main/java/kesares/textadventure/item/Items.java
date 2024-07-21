@@ -8,6 +8,10 @@ public final class Items {
     public static final Item TWELVE_POUNDER = new Cannon.Settings().id("twelve_pounder").name("12-Pfünder").itemGroup(ItemGroup.CANNONS).diamondCosts(4000).damage(12).scattering(0.6).destroyable(false).build();
     public static final Item EIGHTEEN_POUNDER = new Cannon.Settings().id("eighteen_pounder").name("18-Pfünder").itemGroup(ItemGroup.CANNONS).diamondCosts(6000).damage(15).scattering(0.5).destroyable(false).build();
 
+    public static final Item STONE_BALL = new Cannonball.Settings().id("stone_ball").itemGroup(ItemGroup.CANNONBALLS).goldCosts(10_000).damage(1).criticalHitChance(0.05).criticalHitDamage(0.02).build();
+    public static final Item IRON_BALL = new Cannonball.Settings().id("iron_ball").itemGroup(ItemGroup.CANNONBALLS).goldCosts(30_000).damage(2).criticalHitChance(0.1).criticalHitDamage(0.02).build();
+    public static final Item STEEL_BALL = new Cannonball.Settings().id("steel_ball").itemGroup(ItemGroup.CANNONBALLS).diamondCosts(1000).damage(10).criticalHitChance(0.15).criticalHitDamage(0.1).build();
+
     private Items() {
         throw new UnsupportedOperationException();
     }
