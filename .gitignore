@@ -41,3 +41,4 @@ build/
 
 ### Custom ###
 stuff
+src/main/resources/templates

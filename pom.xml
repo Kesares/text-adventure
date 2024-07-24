@@ -4,14 +4,15 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>kesares</groupId>
-    <artifactId>TextAdventure</artifactId>
-    <version>0.8.8-pre-alpha</version>
+    <groupId>kesares.textadventure</groupId>
+    <artifactId>text-adventure</artifactId>
+    <version>0.8.9-pre-alpha</version>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <formatted.version>0.8.9_pre_alpha</formatted.version>
     </properties>
     <dependencies>
         <dependency>
@@ -39,10 +40,14 @@
                             <mainClass>kesares.textadventure.Main</mainClass>
                         </manifest>
                         <manifestEntries>
+                            <Built-By>Kesares</Built-By>
                             <Implementation-Version>${project.version}</Implementation-Version>
                         </manifestEntries>
                     </archive>
                     <outputDirectory>${project.build.directory}/../out/jar</outputDirectory>
+                    <excludes>
+                        <exclude>templates/**</exclude>
+                    </excludes>
                 </configuration>
             </plugin>
             <plugin>
@@ -54,17 +59,49 @@
                 </configuration>
             </plugin>
             <plugin>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <configuration>
-                    <archive>
-                        <manifest>
-                            <mainClass>kesares.textadventure.Main</mainClass>
-                        </manifest>
-                    </archive>
-                    <descriptorRefs>
-                        <descriptorRef>jar-with-dependencies</descriptorRef>
-                    </descriptorRefs>
-                </configuration>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.2.0</version>
+                <executions>
+                    <execution>
+                        <id>generate-readme</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.basedir}</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>src/main/resources/templates</directory>
+                                    <includes>
+                                        <include>README.md</include>
+                                    </includes>
+                                    <filtering>true</filtering>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>generate-bat</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.basedir}/out/jar</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>src/main/resources/templates</directory>
+                                    <includes>
+                                        <include>start.bat</include>
+                                    </includes>
+                                    <filtering>true</filtering>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
