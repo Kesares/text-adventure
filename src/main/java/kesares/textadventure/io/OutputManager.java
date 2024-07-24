@@ -27,8 +27,8 @@ public final class OutputManager {
         printPartingLine(c, length);
     }
 
-    public static void printTitle(String title, char lineChar, int length) {
-        printTitle(title, lineChar, length, AnsiColor.YELLOW);
+    public static void printTitle(String title, char c, int length) {
+        printTitle(title, c, length, AnsiColor.YELLOW);
     }
 
     public static void printTitle(String title, int length) {
@@ -50,6 +50,25 @@ public final class OutputManager {
     public static void printCenteredColorText(String text, String color, int length) {
         int width = calculateCenterWidth(text, length);
         System.out.printf("%s%" + width + "s%s%n", color, text, AnsiColor.DEFAULT);
+    }
+
+    /**
+     * Prints a line on the console consisting of a given {@code c},
+     * the {@code length} and a {@code borderChar} at the beginning and end of the line.
+     * The method replaces the 2 characters at the beginning and the end with the {@code borderChar}.
+     * The caller only needs to know the total length.
+     *
+     * @param c the character of the line
+     * @param length the length of the line
+     * @param borderChar the character at the beginning and end of the line
+     */
+    public static void printPartingLineWithBorder(char c, int length, char borderChar) {
+        LINE_BUILDER
+                .append(borderChar)
+                .append(String.valueOf(c).repeat(Math.max(0, length - 2)))
+                .append(borderChar);
+        System.out.println(LINE_BUILDER);
+        LINE_BUILDER.setLength(0);
     }
 
     public static void printPartingLine(char c, int length) {
