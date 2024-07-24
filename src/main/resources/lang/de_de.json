@@ -31,5 +31,14 @@
   "worldMenu": "1: Story fortsetzen...\n2: Charakterinfo\n3: Inventar\n4: Einstellungen\n5: Hauptmenü",
   "worlds": "Welten",
   "worldSelectionMenu": "1: Welt laden\n2: Weltname ändern\n3: Welt löschen\n4: Hauptmenü",
-  "yesNo": "1: Ja\n2: Nein"
+  "yesNo": "1: Ja\n2: Nein",
+
+  "sixPounder": "6-Pfünder",
+  "ninePounder": "9-Pfünder",
+  "tenPounder": "10-Pfünder",
+  "twelvePounder": "12-Pfünder",
+  "eighteenPounder": "18-Pfünder",
+  "stoneBall": "Steinkugel",
+  "ironBall": "Eisenkugel",
+  "steelBall": "Stahlkugel"
 }

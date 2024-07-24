@@ -38,6 +38,16 @@ public final class Strings {
     public String worldSelectionMenu;
     public String yesNo;
 
+    // Item names
+    public String sixPounder;
+    public String ninePounder;
+    public String tenPounder;
+    public String twelvePounder;
+    public String eighteenPounder;
+    public String stoneBall;
+    public String ironBall;
+    public String steelBall;
+
 //    public String levelUp;
 //    public String[] invaderNames;
 

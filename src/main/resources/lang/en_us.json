@@ -31,5 +31,14 @@
   "worldMenu": "1: Continue story...\n2: Character info\n3: Inventory\n4: Settings\n5: Main Menu",
   "worlds": "Worlds",
   "worldSelectionMenu": "1: Load world\n2: Change world name\n3: Delete world\n4: Main Menu",
-  "yesNo": "1: Yes\n2: No"
+  "yesNo": "1: Yes\n2: No",
+
+  "sixPounder": "6-Pounder",
+  "ninePounder": "9-Pounder",
+  "tenPounder": "10-Pounder",
+  "twelvePounder": "12-Pounder",
+  "eighteenPounder": "18-Pounder",
+  "stoneBall": "Stone Ball",
+  "ironBall": "Iron Ball",
+  "steelBall": "Steel Ball"
 }
