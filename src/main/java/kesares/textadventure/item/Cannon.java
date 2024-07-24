@@ -6,9 +6,9 @@ import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 @JsonDeserialize(builder = Cannon.Settings.class)
 public class Cannon extends Item {
 
-    private int damage;
-    private double scattering;
-    private boolean isDestroyable;
+    private final int damage;
+    private final double scattering;
+    private final boolean isDestroyable;
 
     private Cannon(Settings settings) {
         super(settings);
@@ -21,24 +21,12 @@ public class Cannon extends Item {
         return damage;
     }
 
-    public void setDamage(int damage) {
-        this.damage = damage;
-    }
-
     public double getScattering() {
         return scattering;
     }
 
-    public void setScattering(double scattering) {
-        this.scattering = scattering;
-    }
-
     public boolean isDestroyable() {
         return isDestroyable;
-    }
-
-    public void setDestroyable(boolean isDestroyable) {
-        this.isDestroyable = isDestroyable;
     }
 
     @Override

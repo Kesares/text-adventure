@@ -2,9 +2,9 @@ package kesares.textadventure.item;
 
 public class Cannonball extends Item {
 
-    private int damage;
-    private double criticalHitChance;
-    private double criticalHitDamage;
+    private final int damage;
+    private final double criticalHitChance;
+    private final double criticalHitDamage;
 
     private Cannonball(Settings settings) {
         super(settings);
@@ -17,24 +17,12 @@ public class Cannonball extends Item {
         return damage;
     }
 
-    public void setDamage(int damage) {
-        this.damage = damage;
-    }
-
     public double getCriticalHitChance() {
         return criticalHitChance;
     }
 
-    public void setCriticalHitChance(double criticalHitChance) {
-        this.criticalHitChance = criticalHitChance;
-    }
-
     public double getCriticalHitDamage() {
         return criticalHitDamage;
-    }
-
-    public void setCriticalHitDamage(double criticalHitDamage) {
-        this.criticalHitDamage = criticalHitDamage;
     }
 
     @Override

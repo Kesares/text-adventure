@@ -69,7 +69,7 @@ public abstract class Item {
         private int diamondCosts = 0;
 
         public T id(String id) {
-            if (Utils.isInvalidString(id)) throw new IllegalArgumentException("name is an invalid string");
+            if (Utils.isInvalidString(id)) throw new IllegalArgumentException("id is an invalid string");
             this.id = id;
             return this.self();
         }
