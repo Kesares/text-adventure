@@ -34,7 +34,7 @@ public class ItemStack {
 
     @Override
     public String toString() {
-        return String.format(this.item.getRarity().getColor() + "%15s (%d)" + AnsiColor.RESET, this.item.getName(), this.amount);
+        return String.format("%s%15s (%d)%s", this.item.getRarity().getColor(), this.item.getName(), this.amount,  AnsiColor.RESET);
     }
 
     public Item getItem() {
