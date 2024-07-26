@@ -34,7 +34,7 @@ public class Player extends Entity {
 
     public void printInventory() {
         OutputManager.clearConsole();
-        this.inventory.print("Inventar: " + this.name);
+        this.inventory.print();
     }
 
     public Inventory getInventory() {

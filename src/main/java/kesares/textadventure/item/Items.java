@@ -19,7 +19,6 @@ public final class Items {
     public static final Item STONE_BALL = registerItem(new Cannonball.Settings().id("stone_ball").name(LanguageSelector.strings.stoneBall).itemGroup(ItemGroup.CANNONBALLS).goldCosts(10_000).damage(1).criticalHitChance(0.05).criticalHitDamage(0.02).build());
     public static final Item IRON_BALL = registerItem(new Cannonball.Settings().id("iron_ball").name(LanguageSelector.strings.ironBall).itemGroup(ItemGroup.CANNONBALLS).goldCosts(30_000).damage(2).criticalHitChance(0.1).criticalHitDamage(0.02).build());
     public static final Item STEEL_BALL = registerItem(new Cannonball.Settings().id("steel_ball").name(LanguageSelector.strings.steelBall).itemGroup(ItemGroup.CANNONBALLS).rarity(Rarity.UNCOMMON).diamondCosts(1000).damage(10).criticalHitChance(0.15).criticalHitDamage(0.1).build());
-    public static final Item STEEL_BALL2 = registerItem(new Cannonball.Settings().id("steel_ball").name(LanguageSelector.strings.steelBall).itemGroup(ItemGroup.CANNONBALLS).rarity(Rarity.UNCOMMON).diamondCosts(1000).damage(10).criticalHitChance(0.15).criticalHitDamage(0.1).build());
 
     private Items() {
         throw new UnsupportedOperationException();

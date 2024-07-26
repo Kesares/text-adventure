@@ -1,17 +1,19 @@
 package kesares.textadventure.core;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import kesares.textadventure.entity.Battle;
 import kesares.textadventure.entity.NPC;
 import kesares.textadventure.entity.Player;
 import kesares.textadventure.io.InputManager;
 import kesares.textadventure.io.MenuPrinter;
 import kesares.textadventure.io.OutputManager;
+import kesares.textadventure.io.table.Tabulateable;
 import kesares.textadventure.util.AnsiColor;
 import kesares.textadventure.util.Refactor;
 import kesares.textadventure.util.Utils;
 import kesares.textadventure.util.lang.LanguageSelector;
 
-public class World {
+public class World implements Tabulateable {
 
     private static final String[] NPCS = {"Seeratte", "Williams Garde", "Krebsmonster"};
 
@@ -56,9 +58,7 @@ public class World {
     }
 
     private void continueJourney() {
-        OutputManager.printComingSoon("Story fortsetzen... - ");
         OutputManager.clearConsole();
-
         double eventRate = Math.random();
 
         if (eventRate < 0.8) {
@@ -85,6 +85,12 @@ public class World {
             return createPlayer();
         }
         return new Player(name);
+    }
+
+    @JsonIgnore
+    @Override
+    public String[] getColumnNames() {
+        return new String[] {"Nr.", "Welt"};
     }
 
     public String getName() {

@@ -1,5 +1,7 @@
 package kesares.textadventure.core;
 import kesares.textadventure.io.*;
+import kesares.textadventure.io.table.TablePrinter;
+import kesares.textadventure.io.table.WorldTablePrinter;
 import kesares.textadventure.util.AnsiColor;
 import kesares.textadventure.util.ResourceLibrary;
 import kesares.textadventure.util.lang.LanguageSelector;
@@ -8,15 +10,15 @@ import java.util.List;
 
 public class Game {
 
-    private ConsoleTable worldsTable;
     private final List<World> worlds;
+    private final TablePrinter worldsTablePrinter;
     private World world;
     private boolean isRunning;
 
     public Game() {
         ResourceLibrary.init();
         this.worlds = WorldIO.loadWorlds();
-        this.createNewWorldTable();
+        this.worldsTablePrinter = new WorldTablePrinter("Welten", this.worlds, LanguageSelector.strings.numero, LanguageSelector.strings.worlds);
         this.isRunning = true;
     }
 
@@ -40,14 +42,14 @@ public class Game {
         String worldName = InputManager.enterString(LanguageSelector.strings.enterWorldName);
         this.world = new World(worldName);
         this.worlds.add(this.world);
-        this.worldsTable.addRow(this.worlds.size() + ".", this.world.getName());
+        this.worldsTablePrinter.update();
         this.world.update();
     }
 
     private void showWorlds() {
         OutputManager.clearConsole();
-        this.worldsTable.setHeaders(LanguageSelector.strings.numero, LanguageSelector.strings.worlds);
-        this.worldsTable.print(LanguageSelector.strings.savedWorldsTitle);
+        this.worldsTablePrinter.update();
+        this.worldsTablePrinter.print();
         int index = InputManager.enterByte("> ") - 1;
         OutputManager.clearConsole();
         if (index == this.worlds.size()) return;
@@ -63,20 +65,15 @@ public class Game {
                 OutputManager.printBoldPartingLine();
                 this.world.update();
             }
-            case 2 -> {
-                this.world.changeWorldName();
-                this.createNewWorldTable();
-            }
-            case 3 -> {
-                this.deleteWorld();
-                this.createNewWorldTable();
-            }
+            case 2 -> this.world.changeWorldName();
+            case 3 -> this.deleteWorld();
             default -> OutputManager.printOptionDoesntExist(option);
         }
     }
 
     private void deleteWorld() {
         this.worlds.remove(this.world);
+        this.worldsTablePrinter.update();
         OutputManager.printBoldPartingLine();
         OutputManager.printCenteredColorText(this.world.getName() + LanguageSelector.strings.deleted, AnsiColor.YELLOW, OutputManager.LINE_LENGTH);
     }
@@ -88,13 +85,6 @@ public class Game {
         InputManager.close();
         OutputManager.printBoldPartingLine();
         this.isRunning = false;
-    }
-
-    private void createNewWorldTable() {
-        this.worldsTable = new ConsoleTable(LanguageSelector.strings.numero, LanguageSelector.strings.worlds);
-        for (int i = 0; i < worlds.size(); i++) {
-            this.worldsTable.addRow(i + 1 + ".", this.worlds.get(i).getName());
-        }
     }
 
     public boolean isRunning() {

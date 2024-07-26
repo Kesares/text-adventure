@@ -1,22 +1,22 @@
 package kesares.textadventure.entity;
 
-import kesares.textadventure.io.ConsoleTable;
+import kesares.textadventure.io.table.TablePrinter;
 import kesares.textadventure.io.table.Tabulateable;
 import kesares.textadventure.item.Item;
 import kesares.textadventure.item.ItemStack;
+import kesares.textadventure.io.table.InventoryTablePrinter;
 import kesares.textadventure.util.Utils;
-import kesares.textadventure.util.lang.LanguageSelector;
 
 public class Inventory implements Tabulateable {
 
     private final ItemStack[] itemStacks;
     private boolean isFull;
-    private final ConsoleTable consoleTable;
+    private final TablePrinter tablePrinter;
 
     public Inventory(int size) {
         this.itemStacks = new ItemStack[size];
         this.isFull = false;
-        this.consoleTable = new ConsoleTable(LanguageSelector.strings.numero, "Item", "Anzahl");
+        this.tablePrinter = new InventoryTablePrinter("Inventar", this.itemStacks, this.getColumnNames());
     }
 
     public void add(Item item, int amount) {
@@ -24,11 +24,11 @@ public class Inventory implements Tabulateable {
         for (int i = 0; i < this.itemStacks.length; i++) {
             if (Utils.isNotNull(this.itemStacks[i]) && this.itemStacks[i].getItem().equals(item)) {
                 this.itemStacks[i].add(amount);
-                this.consoleTable.addRow(i + 1 + ".", item.getName(), String.valueOf(this.itemStacks[i].getAmount()));
+                this.tablePrinter.update();
                 return;
             } else if (this.itemStacks[i] == null) {
                 this.itemStacks[i] = new ItemStack(item, amount);
-                this.consoleTable.addRow(i + 1 + ".", item.getName(), String.valueOf(this.itemStacks[i].getAmount()));
+                this.tablePrinter.update();
                 return;
             }
         }
@@ -40,9 +40,9 @@ public class Inventory implements Tabulateable {
         for (int i = 0; i < this.itemStacks.length; i++) {
             if (Utils.isNotNull(this.itemStacks[i]) && this.itemStacks[i].getItem().equals(item)) {
                 this.itemStacks[i].remove(amount);
+                this.tablePrinter.update();
 
                 if (this.isInvalidAmount(this.itemStacks[i].getAmount())) {
-                    this.itemStacks[i] = null;
                     this.shiftItems(i);
                     this.isFull = false;
                     break;
@@ -57,8 +57,8 @@ public class Inventory implements Tabulateable {
         }
     }
 
-    public void print(String title) {
-        this.consoleTable.print(title);
+    public void print() {
+        this.tablePrinter.print();
     }
 
     public ItemStack[] getItemStacks() {
