@@ -16,6 +16,7 @@
   "invalidWorldName": "Hinweis: Ungültiger Weltname!",
   "languageSelectionMenu": "1: Englisch\n2: Deutsch\n\n3: Zurück",
   "languageSelectionMenuTitle": "Sprachauswahl",
+  "levelUp": "Du bist jetzt Level %d.",
   "lostBattle": "Du hast den Kampf verloren...",
   "mainMenu": "1: Neue Welt erstellen\n2: Weltauswahl\n3: Einstellungen\n4: Beenden",
   "makeDamage": "Du hast '%s' %d Schaden zugefügt.%n",

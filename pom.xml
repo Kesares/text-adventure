@@ -6,13 +6,13 @@
 
     <groupId>kesares.textadventure</groupId>
     <artifactId>text-adventure</artifactId>
-    <version>0.8.17-pre-alpha</version>
+    <version>0.8.18-pre-alpha</version>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <formatted.version>0.8.17_pre_alpha</formatted.version>
+        <formatted.version>0.8.18_pre_alpha</formatted.version>
     </properties>
     <dependencies>
         <dependency>

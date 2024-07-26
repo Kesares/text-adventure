@@ -16,6 +16,7 @@
   "invalidWorldName": "Hint: Invalid world name!",
   "languageSelectionMenu": "1: English\n2: German\n\n3: Back",
   "languageSelectionMenuTitle": "Language Selection",
+  "levelUp": "You are now level %d.",
   "lostBattle": "You lost the battle...",
   "mainMenu": "1: Create new world\n2: World selection\n3: Settings\n4: Exit",
   "makeDamage": "You have dealt '%s' %d damage.%n",

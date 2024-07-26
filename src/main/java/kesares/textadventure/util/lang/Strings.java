@@ -21,6 +21,7 @@ public final class Strings {
     public String invalidWorldName;
     public String languageSelectionMenu;
     public String languageSelectionMenuTitle;
+    public String levelUp;
     public String lostBattle;
     public String savedWorldsTitle;
     public String mainMenu;
@@ -48,7 +49,6 @@ public final class Strings {
     public String ironBall;
     public String steelBall;
 
-//    public String levelUp;
 //    public String[] invaderNames;
 
     public String getFormattedOptionDoesntExist(int option) {
