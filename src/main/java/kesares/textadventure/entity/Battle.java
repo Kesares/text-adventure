@@ -31,6 +31,7 @@ public class Battle {
                 case 1 -> this.attack();
                 case 2 -> {
                     System.out.println(LanguageSelector.strings.flee);
+                    this.player.setHp(this.player.getMaxHP());
                     OutputManager.printBoldPartingLine();
                     return;
                 }
@@ -78,8 +79,8 @@ public class Battle {
         OutputManager.printTitle(String.format(LanguageSelector.strings.defeatedEntity, this.npc.getName(), this.npc.getLevel()));
         this.player.addExp(this.npc.getExp());
         this.player.addGold(this.npc.getGold());
-        System.out.printf(LanguageSelector.strings.gotExp, this.npc.getExp());
-        System.out.printf(LanguageSelector.strings.gotGold, this.npc.getGold());
+        System.out.printf(LanguageSelector.strings.gotExp + "%n", this.npc.getExp());
+        System.out.printf(LanguageSelector.strings.gotGold + "%n", this.npc.getGold());
         OutputManager.printBoldPartingLine();
     }
 
