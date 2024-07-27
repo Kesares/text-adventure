@@ -8,12 +8,12 @@ import kesares.textadventure.util.Utils;
 @JsonDeserialize(builder = Item.Settings.class)
 public abstract class Item {
 
-    protected String id;
-    protected String name;
-    protected Rarity rarity;
-    protected ItemGroup itemGroup;
-    protected int goldCosts;
-    protected int diamondCosts;
+    protected final String id;
+    protected final String name;
+    protected final Rarity rarity;
+    protected final ItemGroup itemGroup;
+    protected final int goldCosts;
+    protected final int diamondCosts;
 
     protected Item(Settings<?> settings) {
         this.id = settings.id;

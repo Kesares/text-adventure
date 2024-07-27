@@ -3,7 +3,7 @@ package kesares.textadventure.entity;
 import kesares.textadventure.io.InputManager;
 import kesares.textadventure.io.MenuPrinter;
 import kesares.textadventure.io.OutputManager;
-import kesares.textadventure.item.Cannon;
+import kesares.textadventure.item.*;
 import kesares.textadventure.util.lang.LanguageSelector;
 
 public class Battle {
@@ -44,8 +44,14 @@ public class Battle {
     private void attack() {
         Cannon[] npcCannons = this.npc.getShip().getCannons();
         Cannon[] playerCannons = this.player.getShip().getCannons();
+
         int takeDamage = this.getSumDamage(npcCannons);
         int makeDamage = this.getSumDamage(playerCannons);
+
+        ItemStack[] itemStacks = this.player.getInventory().getItemStacks();
+        makeDamage += this.getSumCannonballsDamage(itemStacks, playerCannons.length);
+        takeDamage += playerCannons.length * ((Cannonball) Items.STONE_BALL).getDamage();
+
         this.player.removeHP(takeDamage);
         this.npc.removeHP(makeDamage);
         this.printAttackInfo(takeDamage, makeDamage);
@@ -92,5 +98,15 @@ public class Battle {
             }
         }
         return sum;
+    }
+
+    private int getSumCannonballsDamage(ItemStack[] itemStacks, int amountOfCannons) {
+        for (ItemStack itemStack : itemStacks) {
+            if (itemStack.getItem() instanceof Cannonball cannonball) {
+                itemStack.remove(amountOfCannons);
+                return cannonball.getDamage() * amountOfCannons;
+            }
+        }
+        return 0;
     }
 }
