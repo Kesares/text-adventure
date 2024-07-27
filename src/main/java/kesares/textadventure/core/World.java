@@ -15,8 +15,6 @@ import kesares.textadventure.util.lang.LanguageSelector;
 
 public class World implements Tabulateable {
 
-    private static final String[] NPCS = {"Seeratte", "Williams Garde", "Krebsmonster"};
-
     private String name;
     private Player player;
 
@@ -62,16 +60,11 @@ public class World implements Tabulateable {
         double eventRate = Math.random();
 
         if (eventRate < 0.8) {
-            Battle battle = new Battle(this.player, this.getRandomInvader());
+            Battle battle = new Battle(this.player, NPC.create(this.player.getLevel()));
             battle.begin();
         } else {
             OutputManager.printTitle(LanguageSelector.strings.peacefulJourney);
         }
-    }
-
-    private NPC getRandomInvader() {
-        int index = (int) (Math.random() * NPCS.length);
-        return new NPC(NPCS[index]);
     }
 
     @Refactor(msg = "static")
