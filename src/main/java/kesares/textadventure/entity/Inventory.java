@@ -13,10 +13,10 @@ public class Inventory implements Tabulateable {
     private boolean isFull;
     private final TablePrinter tablePrinter;
 
-    public Inventory(int size) {
+    public Inventory(String tablePrinterTitle, int size) {
         this.itemStacks = new ItemStack[size];
         this.isFull = false;
-        this.tablePrinter = new InventoryTablePrinter("Inventar", this.itemStacks, this.getColumnNames());
+        this.tablePrinter = new InventoryTablePrinter(tablePrinterTitle, this.itemStacks, this.getColumnNames());
     }
 
     public void add(Item item, int amount) {

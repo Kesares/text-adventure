@@ -1,6 +1,8 @@
 package kesares.textadventure.entity;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import kesares.textadventure.entity.ship.Ship;
 import kesares.textadventure.entity.ship.Ships;
 import kesares.textadventure.io.OutputManager;
@@ -19,15 +21,12 @@ public class Player extends Entity {
     @JsonIgnore
     private final Inventory equipment;
 
-    public Player(String name) {
+    @JsonCreator
+    public Player(@JsonProperty("name") String name) {
         super(name, 1, 0, 0, Ship.Settings.copyOf(Ships.SLOOP));
-        this.inventory = new Inventory(Items.ITEMS.size());
+        this.inventory = new Inventory("Inventar: " + super.name, Items.ITEMS.size());
         this.inventory.add(Items.STEEL_BALL, 1000);
-        this.equipment = new Inventory(8);
-    }
-
-    public Player() {
-        this("undefined");
+        this.equipment = new Inventory("", 8);
     }
 
     public void printStats() {
