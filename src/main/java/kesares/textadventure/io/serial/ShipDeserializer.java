@@ -1,9 +1,11 @@
-package kesares.textadventure.entity.ship;
+package kesares.textadventure.io.serial;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.JsonNode;
+import kesares.textadventure.entity.ship.Ship;
+import kesares.textadventure.entity.ship.Ships;
 import kesares.textadventure.item.Cannon;
 import kesares.textadventure.item.Item;
 import kesares.textadventure.item.Items;

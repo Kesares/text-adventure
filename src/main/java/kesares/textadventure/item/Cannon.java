@@ -3,6 +3,7 @@ package kesares.textadventure.item;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import kesares.textadventure.io.serial.CannonSerializer;
 
 @JsonDeserialize(builder = Cannon.Settings.class)
 @JsonSerialize(using = CannonSerializer.class)

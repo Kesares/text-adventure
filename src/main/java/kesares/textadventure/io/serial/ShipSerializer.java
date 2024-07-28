@@ -1,8 +1,9 @@
-package kesares.textadventure.entity.ship;
+package kesares.textadventure.io.serial;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
+import kesares.textadventure.entity.ship.Ship;
 import kesares.textadventure.item.Cannon;
 
 import java.io.IOException;

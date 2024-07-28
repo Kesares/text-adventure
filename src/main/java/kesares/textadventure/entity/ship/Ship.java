@@ -3,6 +3,8 @@ package kesares.textadventure.entity.ship;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import kesares.textadventure.io.serial.ShipDeserializer;
+import kesares.textadventure.io.serial.ShipSerializer;
 import kesares.textadventure.item.Cannon;
 import kesares.textadventure.item.Items;
 import kesares.textadventure.util.Utils;
