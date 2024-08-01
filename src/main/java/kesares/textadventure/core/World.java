@@ -1,24 +1,27 @@
 package kesares.textadventure.core;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import kesares.textadventure.entity.Battle;
+import kesares.textadventure.entity.Inventory;
 import kesares.textadventure.entity.NPC;
 import kesares.textadventure.entity.Player;
 import kesares.textadventure.io.InputManager;
 import kesares.textadventure.io.MenuPrinter;
 import kesares.textadventure.io.OutputManager;
-import kesares.textadventure.io.table.Tabulateable;
+import kesares.textadventure.item.Items;
 import kesares.textadventure.util.AnsiColor;
 import kesares.textadventure.util.Refactor;
 import kesares.textadventure.util.Utils;
 import kesares.textadventure.util.lang.LanguageSelector;
 
-public class World implements Tabulateable {
+public class World {
 
     private String name;
-    private Player player;
+    private final Player player;
 
-    public World(String name, Player player) {
+    @JsonCreator
+    public World(@JsonProperty("name") String name, @JsonProperty("player") Player player) {
         this.name = name;
         this.player = player;
     }
@@ -27,7 +30,6 @@ public class World implements Tabulateable {
         this(name, createPlayer());
     }
 
-    public World() {}
 
     public void changeWorldName() {
         OutputManager.printBoldPartingLine();
@@ -77,28 +79,17 @@ public class World implements Tabulateable {
             OutputManager.printColorText(LanguageSelector.strings.invalidPlayerName, AnsiColor.YELLOW);
             return createPlayer();
         }
-        return new Player(name);
-    }
-
-    @JsonIgnore
-    @Override
-    public String[] getColumnNames() {
-        return new String[] {"Nr.", "Welt"};
+        Inventory inventory = new Inventory("Inventar", Items.ITEMS.size());
+        inventory.add(Items.STEEL_BALL, 1000);
+        inventory.add(Items.STONE_BALL, 1000);
+        return new Player(name, inventory);
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public Player getPlayer() {
         return player;
-    }
-
-    public void setPlayer(Player player) {
-        this.player = player;
     }
 }

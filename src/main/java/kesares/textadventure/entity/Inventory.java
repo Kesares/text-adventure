@@ -1,22 +1,33 @@
 package kesares.textadventure.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import kesares.textadventure.io.serial.InventoryDeserializer;
+import kesares.textadventure.io.serial.InventorySerializer;
+import kesares.textadventure.io.table.InventoryTablePrinter;
 import kesares.textadventure.io.table.TablePrinter;
 import kesares.textadventure.io.table.Tabulateable;
 import kesares.textadventure.item.Item;
 import kesares.textadventure.item.ItemStack;
-import kesares.textadventure.io.table.InventoryTablePrinter;
 import kesares.textadventure.util.Utils;
 
+@JsonDeserialize(using = InventoryDeserializer.class)
+@JsonSerialize(using = InventorySerializer.class)
 public class Inventory implements Tabulateable {
 
     private final ItemStack[] itemStacks;
     private boolean isFull;
     private final TablePrinter tablePrinter;
 
-    public Inventory(String tablePrinterTitle, int size) {
-        this.itemStacks = new ItemStack[size];
+    public Inventory(String tablePrinterTitle, ItemStack[] itemStacks) {
+        this.itemStacks = itemStacks;
         this.isFull = false;
         this.tablePrinter = new InventoryTablePrinter(tablePrinterTitle, this.itemStacks, this.getColumnNames());
+    }
+
+    public Inventory(String tablePrinterTitle, int size) {
+        this(tablePrinterTitle, new ItemStack[size]);
     }
 
     public void add(Item item, int amount) {
@@ -24,11 +35,9 @@ public class Inventory implements Tabulateable {
         for (int i = 0; i < this.itemStacks.length; i++) {
             if (Utils.isNotNull(this.itemStacks[i]) && this.itemStacks[i].getItem().equals(item)) {
                 this.itemStacks[i].add(amount);
-                this.tablePrinter.update();
                 return;
             } else if (this.itemStacks[i] == null) {
                 this.itemStacks[i] = new ItemStack(item, amount);
-                this.tablePrinter.update();
                 return;
             }
         }
@@ -40,7 +49,6 @@ public class Inventory implements Tabulateable {
         for (int i = 0; i < this.itemStacks.length; i++) {
             if (Utils.isNotNull(this.itemStacks[i]) && this.itemStacks[i].getItem().equals(item)) {
                 this.itemStacks[i].remove(amount);
-                this.tablePrinter.update();
 
                 if (this.isInvalidAmount(this.itemStacks[i].getAmount())) {
                     this.shiftItems(i);
@@ -65,10 +73,7 @@ public class Inventory implements Tabulateable {
         return itemStacks;
     }
 
-    public boolean isFull() {
-        return isFull;
-    }
-
+    @JsonIgnore
     @Override
     public String[] getColumnNames() {
         return new String[] { "Nr.", "Item", "Menge" };

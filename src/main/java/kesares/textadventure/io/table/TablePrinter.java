@@ -26,13 +26,14 @@ public abstract class TablePrinter {
     }
 
     public void print() {
+        this.update();
         OutputManager.printTitle(this.title, this.tableWidth);
         this.printHeaders();
         this.printBody();
         this.resetBuilder();
     }
-    protected abstract void printBody();
 
+    protected abstract void printBody();
     protected abstract void calculateColumnWidths();
 
     protected void printHeaders() {

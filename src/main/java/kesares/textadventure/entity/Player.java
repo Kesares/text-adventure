@@ -6,27 +6,25 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import kesares.textadventure.entity.ship.Ship;
 import kesares.textadventure.entity.ship.Ships;
 import kesares.textadventure.io.OutputManager;
-import kesares.textadventure.item.Items;
 import kesares.textadventure.util.lang.LanguageSelector;
 
 import java.util.Arrays;
+
 
 public class Player extends Entity {
 
     private static final int[] REQUIRED_XP_FOR_LEVEL_UP = {2_550, 4_000, 5_000, 6_250, 7_750, 9_500, 11_500, 13_750,
             16_250, 19_000, 22_000, 25_250, 28_750, 32_500, 36_500, 40_750, 45_250, 50_000, 60_000};
 
-    @JsonIgnore
     private final Inventory inventory;
     @JsonIgnore
     private final Inventory equipment;
 
     @JsonCreator
-    public Player(@JsonProperty("name") String name) {
+    public Player(@JsonProperty("name") String name, @JsonProperty("inventory") Inventory inventory) {
         super(name, 1, 0, 0, Ship.Settings.copyOf(Ships.SLOOP));
-        this.inventory = new Inventory("Inventar: " + super.name, Items.ITEMS.size());
-        this.inventory.add(Items.STEEL_BALL, 1000);
-        this.equipment = new Inventory("", 8);
+        this.inventory = inventory;
+        this.equipment = new Inventory("Ausstattung", 8);
     }
 
     public void printStats() {

@@ -1,5 +1,6 @@
 package kesares.textadventure.entity;
 
+import kesares.textadventure.item.Items;
 import kesares.textadventure.util.ResourceLibrary;
 import org.junit.jupiter.api.Test;
 
@@ -13,7 +14,7 @@ class PlayerTest {
     @Test
     void addExp() {
         ResourceLibrary.init();
-        Player player = new Player("Player");
+        Player player = new Player("Player", new Inventory("Test Inventory", Items.ITEMS.size()));
         assertEquals(0, player.getExp());
         player.addExp(REQUIRED_XP_FOR_LEVEL_UP[0] - 1);
         assertEquals(REQUIRED_XP_FOR_LEVEL_UP[0] - 1, player.getExp());
