@@ -1,5 +1,7 @@
 package kesares.textadventure.util;
 
+import java.util.Objects;
+
 public final class Utils {
 
     private Utils() {
@@ -7,46 +9,36 @@ public final class Utils {
     }
 
     /**
-     * Checks if the given object is not null.
+     * Checks if all elements in the provided array are {@code null}.
      *
-     * @param o the object to check
-     * @return {@code true} if the object is not null, {@code false} otherwise
-     */
-    public static boolean isNotNull(Object o) {
-        return o != null;
-    }
-
-    /**
-     * Checks if all elements in the provided array are null.
-     * <p>
-     * This method iterates through the given array and checks if each element
-     * is null. If any element is found to be non-null, the method returns false.
-     * If all elements are null, the method returns true.
+     * <p>This method iterates over each element of the array and returns {@code true} only if every element is {@code null}.
+     * If any element is not {@code null}, the method returns {@code false}.</p>
      *
-     * @param array the array to be checked for null elements.
-     *              It should not be null itself. If a null array is passed,
-     *              a NullPointerException may be thrown during iteration.
-     * @return {@code true} if all elements in the array are null,
-     *         {@code false} if at least one element is non-null.
+     * @param <T> the type of elements in the array
+     * @param array the array to be checked; must not be {@code null}
+     * @return {@code true} if all elements in the array are {@code null}; {@code false} otherwise
+     * @throws NullPointerException if the provided array is {@code null}
      */
-    public static boolean isAllNull(Object[] array) {
-        for (Object o : array) {
-            if (isNotNull(o)) return false;
+    public static <T> boolean isAllNull(T[] array) {
+        for (T t : array) {
+            if (!Objects.isNull(t)) {
+                return false;
+            }
         }
         return true;
     }
 
     /**
      * Checks if a given string is invalid.
-     * <p>
-     * This method considers a string invalid if it is {@code null},
-     * empty, or contains only whitespace characters.
+     *
+     * <p>This method considers a string invalid if it is {@code null},
+     * empty, or contains only whitespace characters.</p>
      *
      * @param text the string to be checked for validity.
      * @return {@code true} if the string is {@code null}, empty, or blank,
      *         {@code false} otherwise.
      */
     public static boolean isInvalidString(String text) {
-        return text == null || text.isEmpty() || text.isBlank();
+        return Objects.isNull(text) || text.isBlank();
     }
 }

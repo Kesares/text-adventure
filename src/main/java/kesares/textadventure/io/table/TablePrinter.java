@@ -27,7 +27,6 @@ public abstract class TablePrinter {
 
     public void print() {
         this.update();
-        OutputManager.printTitle(this.title, this.tableWidth);
         this.printHeaders();
         this.printBody();
         this.resetBuilder();
@@ -37,6 +36,7 @@ public abstract class TablePrinter {
     protected abstract void calculateColumnWidths();
 
     protected void printHeaders() {
+        OutputManager.printTitle(this.title, this.tableWidth);
         for (int i = 0; i < this.headers.length; i++) {
             this.headerBuilder.append(String.format("| %-" + this.widthsCache[i] + "s ", this.headers[i]));
         }

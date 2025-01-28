@@ -18,13 +18,14 @@ public class ItemStack {
         this(item, Integer.MAX_VALUE, amount);
     }
 
-    public void add(int amount) {
-        if (this.amount + amount <= this.maxStackSize) {
-            this.amount += amount;
-        }
+    public int push(int amount) {
+        int availableSpace = this.maxStackSize - this.amount;
+        int added = Math.min(availableSpace, amount);
+        this.amount += added;
+        return amount - added;
     }
 
-    public void remove(int amount) {
+    public void pop(int amount) {
         if (this.amount - amount <= 0) {
             this.amount = 0;
         } else {
