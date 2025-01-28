@@ -10,6 +10,7 @@ import java.util.List;
 
 public class Game {
 
+    private final Loop loop;
     private final List<World> worlds;
     private final TablePrinter worldsTablePrinter;
     private World world;
@@ -17,12 +18,19 @@ public class Game {
 
     public Game() {
         ResourceLibrary.init();
+        this.loop = new Loop(this::update);
         this.worlds = WorldIO.loadWorlds();
         this.worldsTablePrinter = new WorldTablePrinter("Welten", this.worlds, LanguageSelector.strings.numero, LanguageSelector.strings.worlds);
-        this.isRunning = true;
+        this.isRunning = false;
     }
 
-    public void update() {
+    public void start() {
+        if (this.isRunning) return;
+        this.isRunning = true;
+        this.loop.start();
+    }
+
+    private void update() {
         OutputManager.printBoldPartingLine();
         InputManager.enterToContinue();
         OutputManager.clearConsole();
@@ -36,7 +44,7 @@ public class Game {
         }
     }
 
-    public void playNewWorld() {
+    private void playNewWorld() {
         OutputManager.clearConsole();
         OutputManager.printTitle(LanguageSelector.strings.createNewWorld);
         String worldName = InputManager.enterString(LanguageSelector.strings.enterWorldName);
@@ -84,10 +92,6 @@ public class Game {
         WorldIO.saveWorlds(this.worlds);
         InputManager.close();
         OutputManager.printBoldPartingLine();
-        this.isRunning = false;
-    }
-
-    public boolean isRunning() {
-        return isRunning;
+        this.loop.stop();
     }
 }
