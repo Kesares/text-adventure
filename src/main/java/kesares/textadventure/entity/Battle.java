@@ -10,10 +10,12 @@ public class Battle {
 
     private final Player player;
     private final NPC npc;
+    private int rounds;
 
     public Battle(Player player, NPC npc) {
         this.player = player;
         this.npc = npc;
+        this.rounds = 0;
     }
 
     public void begin() {
@@ -26,7 +28,7 @@ public class Battle {
     private void update() {
         do {
             OutputManager.clearConsole();
-            final byte option = MenuPrinter.printBattleMenu(this.player, this.npc);
+            final byte option = MenuPrinter.printBattleMenu(this.player, this.npc, ++this.rounds);
             switch (option) {
                 case 1 -> this.attack();
                 case 2 -> {
@@ -74,10 +76,10 @@ public class Battle {
         OutputManager.clearConsole();
         if (this.player.isAlive()) {
             this.playerWins();
-        } else {
-            OutputManager.printTitle(LanguageSelector.strings.lostBattle);
-//             invaderWins(), lostXp(), lostGold()
+            return;
         }
+        OutputManager.printTitle(LanguageSelector.strings.lostBattle);
+//          invaderWins(), lostXp(), lostGold()
         this.player.setHp(this.player.getMaxHP());
     }
 
@@ -103,7 +105,7 @@ public class Battle {
     private int getSumCannonballsDamage(ItemStack[] itemStacks, int amountOfCannons) {
         for (ItemStack itemStack : itemStacks) {
             if (itemStack.getItem() instanceof Cannonball cannonball) {
-                itemStack.remove(amountOfCannons);
+                itemStack.pop(amountOfCannons);
                 return cannonball.getDamage() * amountOfCannons;
             }
         }

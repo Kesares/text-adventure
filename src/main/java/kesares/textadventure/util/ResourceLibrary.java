@@ -40,7 +40,7 @@ public class ResourceLibrary {
                     new File(LANG_PATH + Language.EN_US.getAbbreviation() + ".json"), Strings.class));
             LANGUAGES.put(Language.DE_DE.getAbbreviation(), mapper.readValue(
                     new File(LANG_PATH + Language.DE_DE.getAbbreviation() + ".json"), Strings.class));
-        } catch (IOException e){
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }

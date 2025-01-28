@@ -10,7 +10,6 @@ import kesares.textadventure.util.lang.LanguageSelector;
 
 import java.util.Arrays;
 
-
 public class Player extends Entity {
 
     private static final int[] REQUIRED_XP_FOR_LEVEL_UP = {2_550, 4_000, 5_000, 6_250, 7_750, 9_500, 11_500, 13_750,

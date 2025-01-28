@@ -52,8 +52,8 @@ public final class MenuPrinter {
         return InputManager.enterBoolean("> ");
     }
 
-    public static byte printBattleMenu(Player player, NPC NPC) {
-        OutputManager.printTitle("Battle");
+    public static byte printBattleMenu(Player player, NPC NPC, int rounds) {
+        OutputManager.printTitle("Battle – Runde " + rounds);
         System.out.printf("%s (%d)%nHP: %d/%d%n", player.getName(), player.getLevel(), player.getHP(), player.getMaxHP());
         OutputManager.printPartingLine(OutputManager.MINUS_SIGN);
         System.out.printf("%s (%d)%nHP: %d/%d%n", NPC.getName(), NPC.getLevel(), NPC.getHP(), NPC.getMaxHP());
