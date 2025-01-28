@@ -1,12 +1,12 @@
 package kesares.textadventure.core;
 
-public class GameLoop {
+public class Loop {
 
-    private final Game game;
+    private final Runnable update;
     private boolean isRunning;
 
-    public GameLoop(Game game) {
-        this.game = game;
+    public Loop(Runnable update) {
+        this.update = update;
         this.isRunning = false;
     }
 
@@ -16,15 +16,14 @@ public class GameLoop {
         this.run();
     }
 
-    private void run() {
-        while (this.isRunning) {
-            this.game.update();
-            if (!this.game.isRunning()) this.stop();
-        }
-    }
-
-    private void stop() {
+    public void stop() {
         if (!this.isRunning) return;
         this.isRunning = false;
+    }
+
+    private void run() {
+        while (this.isRunning) {
+            this.update.run();
+        }
     }
 }
